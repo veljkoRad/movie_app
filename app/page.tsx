@@ -14,7 +14,6 @@ export default async function HomePage() {
             }} >
           <h1 className="text-2xl font-bold mb-4">{firstMovie.title}</h1>
           <p className="text-[var(--text2)]">{firstMovie.overview}</p><p className="text-[var(--text2)]">{firstMovie.popularity}</p>
-          <p className="text-[var(--text2)]">{data.total_pages}</p>
         </div>
       </div>
     </main>
