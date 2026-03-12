@@ -2,8 +2,7 @@ import { getPopularMovies } from "../lib/tmdb";
 
 // app/page.tsx
 export default async function HomePage() {
-  const data = await getPopularMovies();
-  
+  const data = await getPopularMovies();  
   const firstMovie = data.results[1];
   return (
     <main className="p-4">
