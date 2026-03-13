@@ -4,6 +4,7 @@
   --background: #ffffff;
   --text : #ffffff;
   --text2: #cfcfcf;
+  --textDark:#000000;
 }
 
 @theme inline {

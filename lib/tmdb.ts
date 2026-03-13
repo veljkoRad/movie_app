@@ -11,7 +11,6 @@ export type Movie = {
 
 export type TMDBListResponse<T> = {
   page: number;
-  
   // value of " results" will be in this case Movie{}
   results: T[];
 };
@@ -39,6 +38,12 @@ export async function tmdbFetch<T>(path: string, params: Record<string, string> 
 export async function getPopularMovies(page = 1) {
   return tmdbFetch<TMDBListResponse<Movie>>("/movie/popular", {
     page: String(page),
+  });
+}
+
+export async function searchMovies(query:string){
+  return tmdbFetch<TMDBListResponse<Movie>>("/search/movie", {
+    query,
   });
 }
 

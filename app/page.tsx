@@ -1,4 +1,5 @@
 import { getPopularMovies } from "../lib/tmdb";
+import Search from "@/components/search";
 
 // app/page.tsx
 export default async function HomePage() {
@@ -7,6 +8,7 @@ export default async function HomePage() {
   const firstMovie = data.results[1];
   return (
     <main className="p-4">
+      <Search />
       <div className="max-w-3xl m-auto">
         <div   className="h-64 bg-cover bg-center rounded-3xl p-6"
             style={{
