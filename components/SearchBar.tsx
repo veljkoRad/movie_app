@@ -19,15 +19,15 @@ function SearchBar() {
         className="relative flex gap-4 w-[193px] items-center justify-between "
       >
         <input
-          className="border h-10 w-[193px] rounded-full text-secondary
-           p-3  border-border"
+          className="border w-[193px] rounded-full color-secondary
+           p-2  border-border text-sm"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search movies..."
+          placeholder="Search"
         />
         <button
           type="submit"
-          className=" p-2 rounded-lg absolute right-3 cursor-pointer"
+          className="  rounded-lg absolute right-3 cursor-pointer"
         >
           <svg height="15px" width="15px" viewBox="0 0 512 512">
             <g>

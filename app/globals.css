@@ -7,9 +7,13 @@
   --bg-hover: #1a1a22;
   --bg-card: #121217;
 
-  --text-primary: #ffffff;
-  --text-secondary: #a1a1aa;
-  --text-tertiary: #6b7280;
+  --color-primary: #ffffff;
+  --color-secondary: #a1a1aa;
+  --color-tertiary: #6b7280;
+
+  --color-black: #0b0b0d;
+  --color-hover: #1a1a22;
+  --color-card: #121217;
 
   --color-border: rgba(255, 255, 255, 0.08);
   --divider: rgba(255, 255, 255, 0.05);
@@ -19,8 +23,8 @@
   :root,
   html,
   body {
-    background-color: var(--bg-black);
-    color: var(--text-primary);
+    background-color: var(--color-black);
+    color: var(--color-primary);
     /* This ensures a smooth font smoothing on Mac */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
