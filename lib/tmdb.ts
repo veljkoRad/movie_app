@@ -11,10 +11,6 @@ export type Movie = {
 
 export type TMDBListResponse<T> = {
   page: number;
-<<<<<<< HEAD
-
-=======
->>>>>>> search-movies
   // value of " results" will be in this case Movie{}
   results: T[];
 };
