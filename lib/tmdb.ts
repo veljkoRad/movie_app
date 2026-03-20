@@ -6,7 +6,8 @@ export type Movie = {
   title: string;
   overview: string;
   poster_path: string | null;
-  popularity: number;
+  release_date: string;
+  vote_average: number;
 };
 
 export type TMDBListResponse<T> = {
