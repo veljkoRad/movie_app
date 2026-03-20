@@ -1,6 +1,6 @@
 const TMDB_BASE = "https://api.themoviedb.org/3";
 
-// Movie is object inside of TMDBListResponse 
+// Movie is object inside of TMDBListResponse
 export type Movie = {
   id: number;
   title: string;
@@ -11,7 +11,10 @@ export type Movie = {
 
 export type TMDBListResponse<T> = {
   page: number;
+<<<<<<< HEAD
 
+=======
+>>>>>>> search-movies
   // value of " results" will be in this case Movie{}
   results: T[];
 };
@@ -22,19 +25,21 @@ function getApiKey() {
   return key;
 }
 
-export async function tmdbFetch<T>(path: string, params: Record<string, string> = {}) {
+export async function tmdbFetch<T>(
+  path: string,
+  params: Record<string, string> = {},
+) {
   const url = new URL(`${TMDB_BASE}${path}`);
   url.searchParams.set("api_key", getApiKey());
 
-  Object.entries(params).forEach(([key, value]) => {
-    url.searchParams.set(key, value);
-  });
+  Object.entries(params).forEach(([key, value]) =>
+    url.searchParams.set(key, value),
+  );
 
   const res = await fetch(url.toString());
   if (!res.ok) throw new Error(`TMDB request failed (${res.status})`);
-  return (await res.json()) as T;
+  return res.json() as T;
 }
-
 
 export async function getPopularMovies(page = 1) {
   return tmdbFetch<TMDBListResponse<Movie>>("/movie/popular", {
@@ -42,4 +47,12 @@ export async function getPopularMovies(page = 1) {
   });
 }
 
+export async function searchMovies(query: string) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/search/movie", {
+    query,
+  });
+}
 
+export async function getMovieDetails(id: string) {
+  return tmdbFetch<Movie>(`/movie/${id}`);
+}

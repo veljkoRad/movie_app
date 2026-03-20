@@ -1,27 +1,34 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --text : #ffffff;
-  --text2: #cfcfcf;
+@theme {
+  /* Initial means override tailwind default colors */
+  --color-*: initial;
+  --bg-black: #0b0b0d;
+  --bg-hover: #1a1a22;
+  --bg-card: #121217;
+
+  --text-primary: #ffffff;
+  --text-secondary: #a1a1aa;
+  --text-tertiary: #6b7280;
+
+  --color-border: rgba(255, 255, 255, 0.08);
+  --divider: rgba(255, 255, 255, 0.05);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --font-sans: var(--font-roboto);
-  --color-text: var(--text);
-  --color-text2: var(--text2);
-}
-
-/* regular CSS , It detects the user's OS dark mode */
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #000;
-    --text: #442121;
+@layer base {
+  :root,
+  html,
+  body {
+    background-color: var(--bg-black);
+    color: var(--text-primary);
+    /* This ensures a smooth font smoothing on Mac */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
-} */
 
-body {
-  background: var(--background);
-  color: var(--text);
+  *,
+  ::after,
+  ::before {
+    border-color: var(--color-border);
+  }
 }
