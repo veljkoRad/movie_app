@@ -34,7 +34,7 @@ export async function tmdbFetch<T>(
 
   const res = await fetch(url.toString());
   if (!res.ok) throw new Error(`TMDB request failed (${res.status})`);
-  return (await res.json()) as T;
+  return res.json() as T;
 }
 
 export async function getPopularMovies(page = 1) {
@@ -47,4 +47,8 @@ export async function searchMovies(query: string) {
   return tmdbFetch<TMDBListResponse<Movie>>("/search/movie", {
     query,
   });
+}
+
+export async function getMovieDetails(id: string) {
+  return tmdbFetch<Movie>(`/movie/${id}`);
 }
