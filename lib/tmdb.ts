@@ -53,3 +53,7 @@ export async function searchMovies(query: string) {
 export async function getMovieDetails(id: string) {
   return tmdbFetch<Movie>(`/movie/${id}`);
 }
+
+export async function getTrendingALL() {
+  return tmdbFetch<Movie>(`/trending/all/day`);
+}

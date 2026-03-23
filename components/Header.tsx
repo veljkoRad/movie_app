@@ -5,7 +5,7 @@ export default function Header() {
     <header className=" border-b-2  sticky top-0 bg-black">
       <div className="max-w-7xl m-auto p-4 flex items-center justify-between ">
         <section className="text-sm tracking-widest font-semibold">
-          <div>MOVIES</div>
+          <div>BOARD</div>
         </section>
         <SearchBar />
       </div>
