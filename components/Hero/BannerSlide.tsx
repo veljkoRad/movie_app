@@ -2,8 +2,9 @@ import Link from "next/link";
 import { Maximize2 } from "lucide-react";
 import Carousel from "../Carousel";
 import { genres } from "@/lib/genres";
+import { Movie } from "@/lib/tmdb";
 
-export default function BannerSlide({ movies }: { movies: any }) {
+export default function BannerSlide({ movies }: { movies: Movie[] }) {
   return (
     <section className=" max-w-216 min-w-0">
       <Carousel>
@@ -31,8 +32,8 @@ export default function BannerSlide({ movies }: { movies: any }) {
                       ? movie.vote_average.toFixed(1)
                       : "N/A"}
                   </div>
-                  <div className="px-3 py-0.5 border border-white bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white">
-                    {genres[movie.genre_ids[0]]}
+                  <div className="px-3 py-0.5 border border-white bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white max-sm:hidden">
+                    {genres[movie.genre_ids[0] as keyof typeof genres]}
                   </div>
                 </article>
               </div>

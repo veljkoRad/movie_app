@@ -3,11 +3,14 @@ const TMDB_BASE = "https://api.themoviedb.org/3";
 // Movie is object inside of TMDBListResponse
 export type Movie = {
   id: number;
-  title: string;
+  title?: string;
+  name?: string;
   overview: string;
-  poster_path: string | null;
-  release_date: string;
+  poster_path: string;
+   release_date?: string;
+  first_air_date?: string;
   vote_average: number;
+  genre_ids: number[];
 };
 
 export type TMDBListResponse<T> = {
