@@ -58,5 +58,5 @@ export async function getMovieDetails(id: string) {
 }
 
 export async function getTrendingALL() {
-  return tmdbFetch<Movie>(`/trending/all/day`);
+  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/all/day`);
 }
