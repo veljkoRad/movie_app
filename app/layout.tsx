@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Montserrat } from "next/font/google";
 import "./globals.css";
+import Header from "@/components/Header";
 
-const inter = Inter({
+const montserat = Montserrat({
   weight: ["400", "500", "600", "700"],
   subsets: ["latin"],
 });
@@ -18,8 +19,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={inter.className}>
-      <body>{children}</body>
+    <html lang="en" className={montserat.className}>
+      <body>
+        <Header />
+        {children}
+      </body>
     </html>
   );
 }

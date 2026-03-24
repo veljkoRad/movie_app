@@ -8,12 +8,10 @@ export default async function HomePage() {
 
   const trendingAll = dataTrendingAll.results.slice(0, 4);
   const trendingAllSide = dataTrendingAll.results.slice(4, 7);
-  console.log("Trending ALL:", trendingAll);
 
   return (
     <div>
-      <Header />
-      <main className="p-4">
+      <main className="px-4 py-8">
         <div className="max-w-7xl m-auto m-auto ">
           <Hero movies={trendingAll} sideMovies={trendingAllSide} />
         </div>
