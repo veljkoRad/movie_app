@@ -1,11 +1,8 @@
+import Container from "@/components/Container";
 import Header from "@/components/Header";
 
 function Movies() {
-  return (
-    <>
-      <div>Movies</div>
-    </>
-  );
+  return <Container>Movies</Container>;
 }
 
 export default Movies;

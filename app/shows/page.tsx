@@ -1,11 +1,8 @@
+import Container from "@/components/Container";
 import Header from "@/components/Header";
 
 function Shows() {
-  return (
-    <>
-      <div>Shows</div>
-    </>
-  );
+  return <Container>Shows</Container>;
 }
 
 export default Shows;

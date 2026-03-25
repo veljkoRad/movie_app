@@ -1,5 +1,6 @@
 import BannerSlide from "./BannerSlide";
 import BannerSide from "./BannerSide";
+import Container from "../Container";
 
 export default function Hero({
   movies,
@@ -9,9 +10,11 @@ export default function Hero({
   sideMovies: any[];
 }) {
   return (
-    <div className="flex gap-6  justify-between max-lg:justify-center">
-      <BannerSlide movies={movies} />
-      <BannerSide sideMovies={sideMovies} />
-    </div>
+    <Container>
+      <div className="flex gap-6  justify-between max-lg:justify-center">
+        <BannerSlide movies={movies} />
+        <BannerSide sideMovies={sideMovies} />
+      </div>
+    </Container>
   );
 }

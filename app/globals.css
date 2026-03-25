@@ -3,13 +3,10 @@
 @theme {
   /* Initial means override tailwind default colors */
   --color-*: initial;
-  --bg-black: #0b0b0d;
-  --bg-hover: #1a1a22;
-  --bg-card: #121217;
-
   --color-primary: #ffffff;
   --color-secondary: #a1a1aa;
   --color-tertiary: #6b7280;
+  --color-forth: #e5e7eb;
 
   --color-black: #0b0b0d;
   --color-hover: #1a1a22;
