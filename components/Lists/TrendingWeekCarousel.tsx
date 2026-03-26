@@ -33,18 +33,18 @@ export default function TrendingWeekCarousel({
       className="overflow-hidden xl:overflow-visible cursor-grab active:cursor-grabbing xl:cursor-default select-none xl:select-auto"
       ref={emblaRef}
     >
-      <div className="flex gap-4">
+      <div className="flex">
         {weekList.map((single) => (
           <section
             key={`${single.media_type}-${single.id}`}
-            className="shrink-0 w-25 sm:w-35 md:w-41 xl:w-41 flex flex-col gap-1 select-none xl:select-text"
+            className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1 select-none mr-4 "
           >
             <Image
               src={`https://image.tmdb.org/t/p/w500${single.poster_path}`}
               alt={single.title || single.name || "Trending title"}
               width={164}
               height={72}
-              className="rounded-2xl w-full select-none"
+              className="rounded-2xl max-sm:min-w-25 min-w-41 select-none"
               draggable={false}
             />
             <div className="flex flex-col gap-0.5 max-sm:hidden">
