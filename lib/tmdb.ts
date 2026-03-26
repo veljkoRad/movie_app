@@ -7,10 +7,11 @@ export type Movie = {
   name?: string;
   overview: string;
   poster_path: string | null;
-   release_date?: string;
+  release_date?: string;
   first_air_date?: string;
   vote_average: number;
   genre_ids: number[];
+  media_type: "movie" | "tv" | "person";
 };
 
 export type TMDBListResponse<T> = {
@@ -57,6 +58,22 @@ export async function getMovieDetails(id: string) {
   return tmdbFetch<Movie>(`/movie/${id}`);
 }
 
+export async function getTvDetails(id: string) {
+  return tmdbFetch<Movie>(`/tv/${id}`);
+}
+
 export async function getTrendingALL() {
   return tmdbFetch<TMDBListResponse<Movie>>(`/trending/all/day`);
+}
+
+export async function getTrendingALLWeek() {
+  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/all/week`);
+}
+
+export async function getTrendingMovies() {
+  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/movie/day`);
+}
+
+export async function getTrendingTv() {
+  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/tv/day`);
 }

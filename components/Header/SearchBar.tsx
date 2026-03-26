@@ -2,10 +2,10 @@
 import { useEffect, useState, useRef } from "react";
 import { useRouter } from "next/navigation";
 import { Search } from "lucide-react";
-import Container from "./Container";
+import Container from "../UI/Container";
 
 type SearchParams = {
-  isVisible: Boolean;
+  isVisible: boolean;
   isClosed: () => void;
 };
 
@@ -27,8 +27,8 @@ function SearchBar({ isVisible, isClosed }: SearchParams) {
     if (isVisible) {
       const timer = setTimeout(() => {
         inputRef.current?.focus();
-        return () => clearTimeout(timer);
       }, 350);
+      return () => clearTimeout(timer);
     }
   }, [isVisible]);
 

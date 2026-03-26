@@ -1,19 +1,20 @@
 import BannerSlide from "./BannerSlide";
 import BannerSide from "./BannerSide";
-import Container from "../Container";
+import Container from "../UI/Container";
+import { Movie } from "@/lib/tmdb";
 
 export default function Hero({
-  movies,
-  sideMovies,
+  list,
+  sideList,
 }: {
-  movies: any[];
-  sideMovies: any[];
+  list: Movie[];
+  sideList: Movie[];
 }) {
   return (
     <Container>
       <div className="flex gap-6  justify-between max-lg:justify-center">
-        <BannerSlide movies={movies} />
-        <BannerSide sideMovies={sideMovies} />
+        <BannerSlide list={list} />
+        <BannerSide sideList={sideList} />
       </div>
     </Container>
   );

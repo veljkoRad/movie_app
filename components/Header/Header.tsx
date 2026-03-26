@@ -16,7 +16,7 @@ export default function Header() {
   const [search, setSearch] = useState(false);
   const [indicatorStyle, setIndicatorStyle] = useState({ left: 0, width: 0 });
   const getSearch = () => {
-    setSearch(!search);
+    setSearch((prev) => !prev);
   };
 
   const tabsRef = useRef<(HTMLAnchorElement | null)[]>([]);
@@ -26,7 +26,6 @@ export default function Header() {
 
   // if findIndex doesn't find result in array, it returns "-1"
   const isTabRoute = activeIndex !== -1;
-  const left = activeIndex * 120;
 
   // update underline dimensions when rout changes
   useEffect(() => {
@@ -46,7 +45,7 @@ export default function Header() {
         <div className=" max-w-7xl mx-auto px-4 py-3 flex items-center justify-between flex-wrap gap-8 ">
           <div className=" text-md order-1 ">Cinepedia</div>
           <section className="  flex max-md:w-full w-auto max-md:order-3 order-2 justify-center">
-            <div className=" flex relative text-md tracking-widest gap-6">
+            <div className=" flex relative text-sm font-medium uppercase tracking-widest max-md:gap-8 gap-12">
               {tabs.map((tab, index) => (
                 <Link
                   key={tab.path}
@@ -70,7 +69,10 @@ export default function Header() {
               )}
             </div>
           </section>
-          <button onClick={getSearch} className="max-md:order-2 order-3">
+          <button
+            onClick={getSearch}
+            className="max-md:order-2 order-3 cursor-pointer"
+          >
             <Search className="w-5 " />
           </button>
         </div>

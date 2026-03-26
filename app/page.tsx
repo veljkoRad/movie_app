@@ -1,6 +1,6 @@
-import Container from "@/components/Container";
-import { getPopularMovies, getTrendingALL } from "../lib/tmdb";
+import { getTrendingALL } from "../lib/tmdb";
 import Hero from "@/components/Hero/Hero";
+import TrendingWeek from "@/components/Lists/TrendingWeek";
 
 // app/page.tsx
 export default async function HomePage() {
@@ -11,7 +11,8 @@ export default async function HomePage() {
 
   return (
     <main>
-      <Hero movies={trendingAll} sideMovies={trendingAllSide} />
+      <Hero list={trendingAll} sideList={trendingAllSide} />
+      <TrendingWeek />
     </main>
   );
 }
