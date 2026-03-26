@@ -13,7 +13,7 @@ async function TrendingWeek() {
   return (
     <Container>
       <h2>This Week</h2>
-      <div className="mt-6">
+      <div className="mt-8">
         <TrendingWeekCarousel weekList={weekList} />
       </div>
     </Container>

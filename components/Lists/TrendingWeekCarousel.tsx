@@ -3,6 +3,7 @@
 import type { Movie } from "@/lib/tmdb";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
+import Link from "next/link";
 
 type TrendingWeekCarouselProps = {
   weekList: Movie[];
@@ -16,7 +17,7 @@ type TrendingWeekCarouselProps = {
 export default function TrendingWeekCarousel({
   weekList,
 }: TrendingWeekCarouselProps) {
-  const [emblaRef] = useEmblaCarousel({
+  const [emblaRef, emblaApi] = useEmblaCarousel({
     loop: false,
     align: "start",
     dragFree: false,
@@ -35,7 +36,12 @@ export default function TrendingWeekCarousel({
     >
       <div className="flex">
         {weekList.map((single) => (
-          <section
+          <Link
+            href={
+              single.media_type === "movie"
+                ? `/movie/${single.id}`
+                : `/tv/${single.id}`
+            }
             key={`${single.media_type}-${single.id}`}
             className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1 select-none mr-4 "
           >
@@ -58,7 +64,7 @@ export default function TrendingWeekCarousel({
                 {single.title || single.name}
               </p>
             </div>
-          </section>
+          </Link>
         ))}
       </div>
     </div>
