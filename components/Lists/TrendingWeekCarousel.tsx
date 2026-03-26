@@ -14,7 +14,8 @@ export default function TrendingWeekCarousel({
   const [emblaRef] = useEmblaCarousel({
     loop: true,
     align: "start",
-    dragFree: false,
+    dragFree: true,
+    duration: 55,
   });
 
   return (
