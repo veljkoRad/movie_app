@@ -17,7 +17,7 @@ export default function TrendingWeekCarousel({
   weekList,
 }: TrendingWeekCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
-    loop: true,
+    loop: false,
     align: "start",
     dragFree: false,
     skipSnaps: false,
@@ -30,7 +30,7 @@ export default function TrendingWeekCarousel({
 
   return (
     <div
-      className="overflow-hidden xl:overflow-visible cursor-grab active:cursor-grabbing xl:cursor-default select-none xl:select-auto"
+      className="overflow-hidden xl:overflow-visible cursor-grab  active:cursor-grabbing xl:cursor-default select-none xl:select-auto"
       ref={emblaRef}
     >
       <div className="flex">
