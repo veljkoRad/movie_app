@@ -8,6 +8,11 @@ type TrendingWeekCarouselProps = {
   weekList: Movie[];
 };
 
+/**
+ * @description Render a single responsive trending-week list that is draggable below xl and static on xl+.
+ * @param {TrendingWeekCarouselProps} props The weekly trending entries to render.
+ * @returns {JSX.Element} A shared list markup with Embla enabled only on smaller breakpoints.
+ */
 export default function TrendingWeekCarousel({
   weekList,
 }: TrendingWeekCarouselProps) {
@@ -16,18 +21,23 @@ export default function TrendingWeekCarousel({
     align: "start",
     dragFree: true,
     duration: 55,
+    breakpoints: {
+      "(min-width: 1280px)": {
+        active: false,
+      },
+    },
   });
 
   return (
     <div
-      className="overflow-hidden cursor-grab active:cursor-grabbing select-none"
+      className="overflow-hidden xl:overflow-visible cursor-grab active:cursor-grabbing xl:cursor-default select-none xl:select-auto"
       ref={emblaRef}
     >
       <div className="flex gap-4">
         {weekList.map((single) => (
           <section
             key={`${single.media_type}-${single.id}`}
-            className="shrink-0 w-25 sm:w-35 md:w-41 flex flex-col gap-1 select-none"
+            className="shrink-0 w-25 sm:w-35 md:w-41 xl:w-41 flex flex-col gap-1 select-none xl:select-text"
           >
             <Image
               src={`https://image.tmdb.org/t/p/w500${single.poster_path}`}
@@ -37,7 +47,7 @@ export default function TrendingWeekCarousel({
               className="rounded-2xl w-full select-none"
               draggable={false}
             />
-            <div className="flex flex-col gap-0.5">
+            <div className="flex flex-col gap-0.5 max-sm:hidden">
               <p className="text-xs text-secondary">
                 ★{" "}
                 {single.vote_average > 0
