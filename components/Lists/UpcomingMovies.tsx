@@ -9,7 +9,7 @@ async function UpcomingMovies() {
     <Container>
       <h2>Upcoming</h2>
       <div className="mt-4">
-        <ListCarousel weekList={upcomingMovies} />
+        <ListCarousel weekList={upcomingMovies} type="movie" />
       </div>
     </Container>
   );

@@ -5,6 +5,7 @@ import { genres } from "@/lib/genres";
 import { Movie } from "@/lib/tmdb";
 
 export default function BannerSlide({ list }: { list: Movie[] }) {
+  console.log(list);
   return (
     <section className=" max-w-216 min-w-0">
       <Carousel>

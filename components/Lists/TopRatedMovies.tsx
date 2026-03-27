@@ -9,7 +9,7 @@ async function TopRatedMovies() {
     <Container>
       <h2>Top Rated</h2>
       <div className="mt-4">
-        <ListCarousel weekList={topRatedMovies} />
+        <ListCarousel weekList={topRatedMovies} type="movie" />
       </div>
     </Container>
   );

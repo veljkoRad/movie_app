@@ -7,9 +7,10 @@ import Link from "next/link";
 
 type ListCarouselProps = {
   weekList: Movie[];
+  type?: "movie" | "show";
 };
 
-export default function ListCarousel({ weekList }: ListCarouselProps) {
+export default function ListCarousel({ weekList, type }: ListCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -27,41 +28,54 @@ export default function ListCarousel({ weekList }: ListCarouselProps) {
       ref={emblaRef}
     >
       <div className="flex">
-        {weekList.map((single) => (
-          <Link
-            href={
-              single.media_type === "movie"
+        {weekList.map((single) => {
+          const checkTrendingType = () => {
+            if (type) {
+              return type === "movie"
                 ? `/movie/${single.id}`
-                : `/tv/${single.id}`
-            }
-            key={`${single.media_type}-${single.id}`}
-            className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1 select-none mr-4 aspect-[2/3] "
-          >
-            <Image
-              src={
-                single.poster_path
-                  ? `https://image.tmdb.org/t/p/w185${single.poster_path}`
-                  : "/placeholder.jpg"
+                : `/tv/${single.id}`;
+            } else {
+              if (single.media_type === "movie") {
+                return `/movie/${single.id}`;
+              } else if (single.media_type === "tv") {
+                return `/tv/${single.id}`;
               }
-              alt={single.title || single.name || "Trending title"}
-              width={185}
-              height={278}
-              className="rounded-2xl  select-none "
-              draggable={false}
-            />
-            <div className="flex flex-col gap-0.5 max-sm:hidden">
-              <p className="text-xs text-secondary">
-                ★{" "}
-                {single.vote_average > 0
-                  ? single.vote_average.toFixed(1)
-                  : "N/A"}
-              </p>
-              <p className="text-sm font-medium">
-                {single.title || single.name}
-              </p>
-            </div>
-          </Link>
-        ))}
+              return "/404";
+            }
+          };
+
+          return (
+            <Link
+              href={checkTrendingType()}
+              key={`${single.media_type}-${single.id}`}
+              className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1 select-none mr-4 aspect-[2/3] "
+            >
+              <Image
+                src={
+                  single.poster_path
+                    ? `https://image.tmdb.org/t/p/w185${single.poster_path}`
+                    : "/placeholder.jpg"
+                }
+                alt={single.title || single.name || "Trending title"}
+                width={185}
+                height={278}
+                className="rounded-2xl  select-none "
+                draggable={false}
+              />
+              <div className="flex flex-col gap-0.5 max-sm:hidden">
+                <p className="text-xs text-secondary">
+                  ★{" "}
+                  {single.vote_average > 0
+                    ? single.vote_average.toFixed(1)
+                    : "N/A"}
+                </p>
+                <p className="text-sm font-medium">
+                  {single.title || single.name}
+                </p>
+              </div>
+            </Link>
+          );
+        })}
       </div>
     </div>
   );

@@ -15,6 +15,7 @@ export default async function HomePage() {
   );
   const trendingAll = dataRemovePerson.slice(0, 4);
   const trendingAllSide = dataRemovePerson.slice(4, 7);
+  console.log(trendingAll);
 
   return (
     <main>

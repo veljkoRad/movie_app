@@ -9,7 +9,7 @@ async function OnTheAir() {
     <Container>
       <h2>On The Air</h2>
       <div className="mt-4">
-        <ListCarousel weekList={onTheAirShows} />
+        <ListCarousel weekList={onTheAirShows} type="show" />
       </div>
     </Container>
   );

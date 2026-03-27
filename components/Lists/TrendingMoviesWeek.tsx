@@ -9,7 +9,7 @@ async function TrendingMoviesWeek() {
     <Container>
       <h2>Trending This Week</h2>
       <div className="mt-4">
-        <ListCarousel weekList={trendingMoviesWeek} />
+        <ListCarousel weekList={trendingMoviesWeek} type="movie" />
       </div>
     </Container>
   );

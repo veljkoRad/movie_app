@@ -9,7 +9,7 @@ async function DiscoverShows() {
     <Container>
       <h2>Discover</h2>
       <div className="mt-4">
-        <ListCarousel weekList={trendingShows} />
+        <ListCarousel weekList={trendingShows} type="show" />
       </div>
     </Container>
   );

@@ -9,7 +9,7 @@ async function NowPlaying() {
     <Container>
       <h2>Now Playing</h2>
       <div className="mt-4">
-        <ListCarousel weekList={nowPlayingMovies} />
+        <ListCarousel weekList={nowPlayingMovies} type="movie" />
       </div>
     </Container>
   );
