@@ -1,6 +1,6 @@
 import ListCarousel from "@/components/Lists/ListCarousel";
 import Container from "../UI/Container";
-import { getDiscoverShows } from "@/lib/tmdb";
+import { getDiscoverShows } from "@/lib/tmdb/shows";
 
 async function DiscoverShows() {
   const data = await getDiscoverShows();
@@ -9,7 +9,7 @@ async function DiscoverShows() {
     <Container>
       <h2>Discover</h2>
       <div className="mt-4">
-        <ListCarousel weekList={trendingShows} type="show" />
+        <ListCarousel items={trendingShows} type="show" />
       </div>
     </Container>
   );

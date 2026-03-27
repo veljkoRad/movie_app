@@ -1,16 +1,30 @@
 "use client";
 
-import type { Movie } from "@/lib/tmdb";
+import type { Movie } from "@/lib/tmdb/tmdb";
 import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
 
 type ListCarouselProps = {
-  weekList: Movie[];
+  items: Movie[];
   type?: "movie" | "show";
 };
 
-export default function ListCarousel({ weekList, type }: ListCarouselProps) {
+const checkTrendingType = (single: Movie, type?: "movie" | "show") => {
+  if (type) {
+    return type === "movie" ? `/movie/${single.id}` : `/tv/${single.id}`;
+  } else {
+    if (single.media_type === "movie") {
+      return `/movie/${single.id}`;
+    } else if (single.media_type === "tv") {
+      return `/tv/${single.id}`;
+    } else {
+      return "/404";
+    }
+  }
+};
+
+export default function ListCarousel({ items, type }: ListCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
     align: "start",
@@ -28,25 +42,10 @@ export default function ListCarousel({ weekList, type }: ListCarouselProps) {
       ref={emblaRef}
     >
       <div className="flex">
-        {weekList.map((single) => {
-          const checkTrendingType = () => {
-            if (type) {
-              return type === "movie"
-                ? `/movie/${single.id}`
-                : `/tv/${single.id}`;
-            } else {
-              if (single.media_type === "movie") {
-                return `/movie/${single.id}`;
-              } else if (single.media_type === "tv") {
-                return `/tv/${single.id}`;
-              }
-              return "/404";
-            }
-          };
-
+        {items.map((single) => {
           return (
             <Link
-              href={checkTrendingType()}
+              href={checkTrendingType(single, type)}
               key={`${single.media_type}-${single.id}`}
               className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1 select-none mr-4 aspect-[2/3] "
             >

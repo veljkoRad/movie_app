@@ -1,6 +1,6 @@
 import ListCarousel from "@/components/Lists/ListCarousel";
 import Container from "../UI/Container";
-import { getTopRatedShows } from "@/lib/tmdb";
+import { getTopRatedShows } from "@/lib/tmdb/shows";
 
 async function TopRatedShows() {
   const data = await getTopRatedShows();
@@ -9,7 +9,7 @@ async function TopRatedShows() {
     <Container>
       <h2>Top Rated</h2>
       <div className="mt-4">
-        <ListCarousel weekList={topRatedShows} type="show" />
+        <ListCarousel items={topRatedShows} type="show" />
       </div>
     </Container>
   );

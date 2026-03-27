@@ -1,6 +1,6 @@
 import ListCarousel from "@/components/Lists/ListCarousel";
 import Container from "../UI/Container";
-import { getTrendingMoviesWeek } from "@/lib/tmdb";
+import { getTrendingMoviesWeek } from "@/lib/tmdb/trending";
 
 async function TrendingMoviesWeek() {
   const data = await getTrendingMoviesWeek();
@@ -9,7 +9,7 @@ async function TrendingMoviesWeek() {
     <Container>
       <h2>Trending This Week</h2>
       <div className="mt-4">
-        <ListCarousel weekList={trendingMoviesWeek} type="movie" />
+        <ListCarousel items={trendingMoviesWeek} type="movie" />
       </div>
     </Container>
   );

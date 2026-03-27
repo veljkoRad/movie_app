@@ -1,6 +1,6 @@
 import ListCarousel from "@/components/Lists/ListCarousel";
 import Container from "../UI/Container";
-import { getOnTheAirShows } from "@/lib/tmdb";
+import { getOnTheAirShows } from "@/lib/tmdb/shows";
 
 async function OnTheAir() {
   const data = await getOnTheAirShows();
@@ -9,7 +9,7 @@ async function OnTheAir() {
     <Container>
       <h2>On The Air</h2>
       <div className="mt-4">
-        <ListCarousel weekList={onTheAirShows} type="show" />
+        <ListCarousel items={onTheAirShows} type="show" />
       </div>
     </Container>
   );

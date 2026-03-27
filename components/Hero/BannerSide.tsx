@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Movie } from "@/lib/tmdb";
+import { Movie } from "@/lib/tmdb/tmdb";
 export default function BannerSide({ sideList }: { sideList: Movie[] }) {
   return (
     <section className=" flex flex-col gap-10 relative min-w-89 max-lg:hidden ">

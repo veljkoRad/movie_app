@@ -1,18 +1,18 @@
 import Container from "@/components/UI/Container";
 import Hero from "@/components/Hero/Hero";
-import { getTrendingTv } from "@/lib/tmdb";
+import { getTrendingTvDay } from "@/lib/tmdb/trending";
 import PopularShows from "@/components/Lists/PopularShows";
 import TrendingShowsWeek from "@/components/Lists/TrendingShowsWeek";
 import DiscoverShows from "@/components/Lists/DiscoverShows";
 import OnTheAir from "@/components/Lists/OnTheAir";
 import TopRatedShows from "@/components/Lists/TopRatedShows";
 async function Shows() {
-  const dataTrendingTv = await getTrendingTv();
-  const trendingTv = dataTrendingTv.results.slice(0, 4);
-  const trendingTvSide = dataTrendingTv.results.slice(4, 7);
+  const dataTrendingTvDay = await getTrendingTvDay();
+  const trendingTvDay = dataTrendingTvDay.results.slice(0, 4);
+  const trendingTvDaySide = dataTrendingTvDay.results.slice(4, 7);
   return (
     <Container>
-      <Hero list={trendingTv} sideList={trendingTvSide} />
+      <Hero list={trendingTvDay} sideList={trendingTvDaySide} />
       <PopularShows />
       <TopRatedShows />
       <TrendingShowsWeek />

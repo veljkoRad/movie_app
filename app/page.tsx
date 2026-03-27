@@ -1,4 +1,4 @@
-import { getTrendingALL } from "../lib/tmdb";
+import { getTrendingAllDay } from "../lib/tmdb/trending";
 import Hero from "@/components/Hero/Hero";
 import TrendingWeek from "@/components/Lists/TrendingWeek";
 import DiscoverMovies from "@/components/Lists/DiscoverMovies";
@@ -9,17 +9,13 @@ import NowPlaying from "@/components/Lists/NowPlaying";
 
 // app/page.tsx
 export default async function HomePage() {
-  const dataTrendingAll = await getTrendingALL();
-  const dataRemovePerson = dataTrendingAll.results.filter(
-    (item) => item.media_type !== "person",
-  );
-  const trendingAll = dataRemovePerson.slice(0, 4);
-  const trendingAllSide = dataRemovePerson.slice(4, 7);
-  console.log(trendingAll);
+  const dataTrendingAllDay = await getTrendingAllDay();
+  const trendingAllDay = dataTrendingAllDay.results.slice(0, 4);
+  const trendingAllDaySide = dataTrendingAllDay.results.slice(4, 7);
 
   return (
     <main>
-      <Hero list={trendingAll} sideList={trendingAllSide} />
+      <Hero list={trendingAllDay} sideList={trendingAllDaySide} />
       <TrendingWeek />
       <UpcomingMovies />
       <OnTheAir />

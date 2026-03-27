@@ -2,10 +2,9 @@ import Link from "next/link";
 import { Maximize2 } from "lucide-react";
 import Carousel from "./Carousel";
 import { genres } from "@/lib/genres";
-import { Movie } from "@/lib/tmdb";
+import { Movie } from "@/lib/tmdb/tmdb";
 
 export default function BannerSlide({ list }: { list: Movie[] }) {
-  console.log(list);
   return (
     <section className=" max-w-216 min-w-0">
       <Carousel>

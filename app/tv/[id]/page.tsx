@@ -1,6 +1,6 @@
 import Container from "@/components/UI/Container";
 import Image from "next/image";
-import { getTvDetails } from "@/lib/tmdb";
+import { getTvDetails } from "@/lib/tmdb/shows";
 
 type TvDetailsProps = {
   params: Promise<{ id: string }>;

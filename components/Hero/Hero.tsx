@@ -1,7 +1,7 @@
 import BannerSlide from "./BannerSlide";
 import BannerSide from "./BannerSide";
 import Container from "../UI/Container";
-import { Movie } from "@/lib/tmdb";
+import { Movie } from "@/lib/tmdb/tmdb";
 
 export default function Hero({
   list,

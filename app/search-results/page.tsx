@@ -1,4 +1,4 @@
-import { searchMovies } from "@/lib/tmdb";
+import { searchMovies } from "@/lib/tmdb/tmdb";
 
 type SearchProps = { searchParams: Promise<{ query?: string }> };
 

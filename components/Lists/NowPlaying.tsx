@@ -1,6 +1,6 @@
 import ListCarousel from "@/components/Lists/ListCarousel";
 import Container from "../UI/Container";
-import { getNowPlayingMovies } from "@/lib/tmdb";
+import { getNowPlayingMovies } from "@/lib/tmdb/movies";
 
 async function NowPlaying() {
   const data = await getNowPlayingMovies();
@@ -9,7 +9,7 @@ async function NowPlaying() {
     <Container>
       <h2>Now Playing</h2>
       <div className="mt-4">
-        <ListCarousel weekList={nowPlayingMovies} type="movie" />
+        <ListCarousel items={nowPlayingMovies} type="movie" />
       </div>
     </Container>
   );

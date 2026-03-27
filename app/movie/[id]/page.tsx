@@ -1,5 +1,5 @@
 import Container from "@/components/UI/Container";
-import { getMovieDetails } from "@/lib/tmdb";
+import { getMovieDetails } from "@/lib/tmdb/tmdb";
 import Image from "next/image";
 
 type MovieDetailsProps = {
