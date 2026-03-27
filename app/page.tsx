@@ -10,8 +10,12 @@ import NowPlaying from "@/components/Lists/NowPlaying";
 // app/page.tsx
 export default async function HomePage() {
   const dataTrendingAllDay = await getTrendingAllDay();
-  const trendingAllDay = dataTrendingAllDay.results.slice(0, 4);
-  const trendingAllDaySide = dataTrendingAllDay.results.slice(4, 7);
+  const trendingAllDay = dataTrendingAllDay.results
+    .filter((item) => item.media_type === "movie" || item.media_type === "tv")
+    .slice(0, 4);
+  const trendingAllDaySide = dataTrendingAllDay.results
+    .filter((item) => item.media_type === "movie" || item.media_type === "tv")
+    .slice(4, 7);
 
   return (
     <main>

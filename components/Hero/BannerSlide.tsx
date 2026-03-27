@@ -6,14 +6,20 @@ import { Movie } from "@/lib/tmdb/tmdb";
 
 export default function BannerSlide({ list }: { list: Movie[] }) {
   return (
-    <section className=" max-w-216 min-w-0">
+    <section className="min-w-0">
       <Carousel>
         {list.map((single) => (
           <div
             key={single.id}
-            className="w-full max-w-216  max-md:h-55 h-90 bg-cover bg-center rounded-[40px] p-6 flex items-end"
+            className="w-full h-[462px] max-lg:h-auto max-lg:aspect-[16/9] max-sm:aspect-[4/3] bg-cover bg-center rounded-[40px] p-6 flex items-end"
             style={{
-              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), transparent), url(${single.poster_path ? `https://image.tmdb.org/t/p/w780${single.poster_path}` : "/placeholder.jpg"})`,
+              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), transparent), url(${
+                single.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w1280${single.backdrop_path}`
+                  : single.poster_path
+                    ? `https://image.tmdb.org/t/p/w1280${single.poster_path}`
+                    : "/placeholder.jpg"
+              })`,
             }}
           >
             <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full">

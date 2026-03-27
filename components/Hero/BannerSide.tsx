@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Movie } from "@/lib/tmdb/tmdb";
 export default function BannerSide({ sideList }: { sideList: Movie[] }) {
   return (
-    <section className=" flex flex-col gap-10 relative min-w-89 max-lg:hidden ">
+    <section className=" flex flex-col gap-4 relative min-w-89 max-lg:hidden ">
       <h2>Today</h2>
       {sideList.map((single) => (
         <div key={single.id} className="flex gap-4">
@@ -18,14 +18,16 @@ export default function BannerSide({ sideList }: { sideList: Movie[] }) {
           >
             <Image
               src={
-                single.poster_path
-                  ? `https://image.tmdb.org/t/p/w185${single.poster_path}`
-                  : "/placeholder.jpg"
+                single.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w342${single.backdrop_path}`
+                  : single.poster_path
+                    ? `https://image.tmdb.org/t/p/w342${single.poster_path}`
+                    : "/placeholder.jpg"
               }
               alt={single.title || single.name || ""}
-              width={185}
-              height={278}
-              className="object-cover rounded-lg hover:opacity-20 transition-all duration-300 w-[160px] h-18"
+              width={single.backdrop_path ? 256 : 185}
+              height={single.backdrop_path ? 144 : 278}
+              className="object-cover rounded-lg hover:opacity-20 transition-all duration-300 w-full h-32.5"
             />
           </Link>
           <div className="flex flex-col gap-0.5">

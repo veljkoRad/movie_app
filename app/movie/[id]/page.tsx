@@ -16,10 +16,10 @@ export default async function MoveDetails({ params }: MovieDetailsProps) {
       <p>{movie.overview}</p>
       {movie.poster_path && (
         <Image
-          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
+          src={`https://image.tmdb.org/t/p/w1280${movie.backdrop_path}`}
           alt={movie.title || movie.name || ""}
-          width={160}
-          height={72}
+          width={1280}
+          height={720}
         />
       )}
     </Container>

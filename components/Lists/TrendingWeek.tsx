@@ -7,6 +7,7 @@ async function TrendingWeek() {
   const items = data.results
     .filter((item) => item.media_type === "movie" || item.media_type === "tv")
     .slice(0, 7);
+  console.log(items);
   return (
     <Container>
       <h2>This Week</h2>
