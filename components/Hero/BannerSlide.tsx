@@ -32,9 +32,11 @@ export default function BannerSlide({ list }: { list: Movie[] }) {
                       ? single.vote_average.toFixed(1)
                       : "N/A"}
                   </div>
-                  <div className="px-3 py-0.5 border border-white bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white max-sm:hidden">
-                    {genres[single.genre_ids[0] as keyof typeof genres]}
-                  </div>
+                  {single.genre_ids?.[0] !== undefined ? (
+                    <div className="px-3 py-0.5 border border-white bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white max-sm:hidden">
+                      {genres[single.genre_ids[0] as keyof typeof genres]}
+                    </div>
+                  ) : null}
                 </article>
               </div>
 

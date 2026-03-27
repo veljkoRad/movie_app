@@ -4,7 +4,7 @@ import { Movie } from "@/lib/tmdb";
 export default function BannerSide({ sideList }: { sideList: Movie[] }) {
   return (
     <section className=" flex flex-col gap-10 relative min-w-89 max-lg:hidden ">
-      <h2>Trending</h2>
+      <h2>Today</h2>
       {sideList.map((single) => (
         <div key={single.id} className="flex gap-4">
           <Link
@@ -19,13 +19,13 @@ export default function BannerSide({ sideList }: { sideList: Movie[] }) {
             <Image
               src={
                 single.poster_path
-                  ? `https://image.tmdb.org/t/p/w500${single.poster_path}`
+                  ? `https://image.tmdb.org/t/p/w185${single.poster_path}`
                   : "/placeholder.jpg"
               }
               alt={single.title || single.name || ""}
-              width={160}
-              height={72}
-              className="min-w-40 max-h-18 object-cover rounded-lg hover:opacity-20 transition-all duration-300"
+              width={185}
+              height={278}
+              className="object-cover rounded-lg hover:opacity-20 transition-all duration-300 w-[160px] h-18"
             />
           </Link>
           <div className="flex flex-col gap-0.5">

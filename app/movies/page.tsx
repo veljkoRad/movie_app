@@ -1,6 +1,12 @@
 import Container from "@/components/UI/Container";
 import Hero from "@/components/Hero/Hero";
 import { getTrendingMovies } from "@/lib/tmdb";
+import PopularMovies from "@/components/Lists/PopularMovies";
+import TopRatedMovies from "@/components/Lists/TopRatedMovies";
+import UpcomingMovies from "@/components/Lists/UpcomingMovies";
+import DiscoverMovies from "@/components/Lists/DiscoverMovies";
+import TrendingMoviesWeek from "@/components/Lists/TrendingMoviesWeek";
+import NowPlaying from "@/components/Lists/NowPlaying";
 
 async function Movies() {
   const dataTrendingMovie = await getTrendingMovies();
@@ -10,6 +16,12 @@ async function Movies() {
   return (
     <Container>
       <Hero list={trendingMovie} sideList={trendingMovieSide} />
+      <PopularMovies />
+      <TopRatedMovies />
+      <TrendingMoviesWeek />
+      <UpcomingMovies />
+      <DiscoverMovies />
+      <NowPlaying />
     </Container>
   );
 }

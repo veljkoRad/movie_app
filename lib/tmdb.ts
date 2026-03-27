@@ -48,6 +48,12 @@ export async function getPopularMovies(page = 1) {
   });
 }
 
+export async function getPopularShows(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/tv/popular", {
+    page: String(page),
+  });
+}
+
 export async function searchMovies(query: string) {
   return tmdbFetch<TMDBListResponse<Movie>>("/search/movie", {
     query,
@@ -74,6 +80,56 @@ export async function getTrendingMovies() {
   return tmdbFetch<TMDBListResponse<Movie>>(`/trending/movie/day`);
 }
 
+export async function getTrendingMoviesWeek() {
+  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/movie/week`);
+}
+
 export async function getTrendingTv() {
   return tmdbFetch<TMDBListResponse<Movie>>(`/trending/tv/day`);
+}
+
+export async function getTrendingTvWeek() {
+  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/tv/week`);
+}
+
+export async function getDiscoverMovies(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/discover/movie", {
+    page: String(page),
+  });
+}
+
+export async function getDiscoverShows(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/discover/tv", {
+    page: String(page),
+  });
+}
+
+export async function getUpcomingMovies(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/movie/upcoming", {
+    page: String(page),
+  });
+}
+
+export async function getOnTheAirShows(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/tv/on_the_air", {
+    page: String(page),
+  });
+}
+
+export async function getNowPlayingMovies(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/movie/now_playing", {
+    page: String(page),
+  });
+}
+
+export async function getTopRatedMovies(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/movie/top_rated", {
+    page: String(page),
+  });
+}
+
+export async function getTopRatedShows(page = 1) {
+  return tmdbFetch<TMDBListResponse<Movie>>("/tv/top_rated", {
+    page: String(page),
+  });
 }
