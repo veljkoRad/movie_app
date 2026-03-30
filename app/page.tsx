@@ -18,13 +18,13 @@ export default async function HomePage() {
     .slice(4, 7);
 
   return (
-    <main>
+    <>
       <Hero list={trendingAllDay} sideList={trendingAllDaySide} />
       <TrendingWeek />
       <UpcomingMovies />
       <OnTheAir />
       <NowPlaying />
       <DiscoverShows />
-    </main>
+    </>
   );
 }

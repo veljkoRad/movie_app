@@ -31,12 +31,12 @@ export default function Carousel({
   return (
     <div className="relative group">
       <div
-        className="overflow-hidden cursor-grab active:cursor-grabbing"
+        className="overflow-hidden cursor-grab active:cursor-grabbing rounded-[40px]"
         ref={emblaRef}
       >
-        <div className="flex">
+        <div className="flex ">
           {children.map((child, i) => (
-            <div key={i} className="flex-[0_0_100%] min-w-0">
+            <div key={i} className="flex-[0_0_100%] min-w-0 ">
               {child}
             </div>
           ))}

@@ -63,7 +63,7 @@ export default function ListCarousel({ items, type }: ListCarouselProps) {
               />
               <div className="flex flex-col gap-0.5 max-sm:hidden">
                 <p className="text-xs text-secondary">
-                  ★{" "}
+                  ★
                   {single.vote_average > 0
                     ? single.vote_average.toFixed(1)
                     : "N/A"}

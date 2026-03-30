@@ -27,7 +27,7 @@ export default function BannerSide({ sideList }: { sideList: Movie[] }) {
               alt={single.title || single.name || ""}
               width={single.backdrop_path ? 256 : 185}
               height={single.backdrop_path ? 144 : 278}
-              className="object-cover rounded-lg hover:opacity-20 transition-all duration-300 w-full h-32.5"
+              className="object-cover rounded-lg hover:opacity-20 transition-all duration-300 min-w-50.5 w-50.5 h-32.5"
             />
           </Link>
           <div className="flex flex-col gap-0.5">
@@ -37,7 +37,7 @@ export default function BannerSide({ sideList }: { sideList: Movie[] }) {
                 single.first_air_date?.slice(0, 4)}
             </div>
             <div className="text-xs text-secondary">
-              ★&nbsp;
+              ★
               {single.vote_average > 0 ? single.vote_average.toFixed(1) : "N/A"}
             </div>
           </div>

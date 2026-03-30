@@ -33,4 +33,45 @@
   ::before {
     border-color: var(--color-border);
   }
+  main {
+    position: relative;
+    top: 0;
+    isolation: isolate;
+    z-index: 2;
+    padding-bottom: 80px;
+  }
+
+  main::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background-image: url("/background-main.webp");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  main::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(11, 11, 13, 1) 50%
+    );
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+  }
+
+  @media (max-width: 640px) {
+    main::after {
+      background: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.8) 0%,
+        rgba(11, 11, 13, 1) 75%
+      );
+    }
+  }
 }
