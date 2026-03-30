@@ -1,4 +1,4 @@
-import { tmdbFetch, TMDBListResponse, Movie } from "./tmdb";
+import { tmdbFetch, TMDBListResponse, Movie, Single } from "./tmdb";
 
 export async function getPopularShows(page = 1) {
   return tmdbFetch<TMDBListResponse<Movie>>("/tv/popular", {
@@ -7,7 +7,7 @@ export async function getPopularShows(page = 1) {
 }
 
 export async function getTvDetails(id: string) {
-  return tmdbFetch<Movie>(`/tv/${id}`);
+  return tmdbFetch<Single>(`/tv/${id}`);
 }
 
 export async function getDiscoverShows(page = 1) {
