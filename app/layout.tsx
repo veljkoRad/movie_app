@@ -22,10 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={montserat.className}>
       <body>
-        <main>
-          <Header />
-          {children}
-        </main>
+        <Header />
+        {children}
         <Footer />
       </body>
     </html>

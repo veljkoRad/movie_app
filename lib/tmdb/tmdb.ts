@@ -15,6 +15,25 @@ export type Movie = {
   media_type: "movie" | "tv";
 };
 
+export type Single = {
+  id: number;
+  name?: string;
+  title?: string;
+  overview: string;
+  poster_path: string | null;
+  backdrop_path: string | null;
+  release_date?: string;
+  first_air_date?: string;
+  vote_average: number;
+  genres: Genre[];
+  tagline: string;
+  original_language: string;
+};
+type Genre = {
+  id: number;
+  name: string;
+};
+
 export type TMDBListResponse<T> = {
   page: number;
   // value of " results" will be in this case Movie{}
