@@ -1,7 +1,6 @@
 import { getTrendingAllDay } from "../lib/tmdb/trending";
 import Hero from "@/components/Hero/Hero";
 import TrendingWeek from "@/components/Lists/TrendingWeek";
-import DiscoverMovies from "@/components/Lists/DiscoverMovies";
 import DiscoverShows from "@/components/Lists/DiscoverShows";
 import UpcomingMovies from "@/components/Lists/UpcomingMovies";
 import OnTheAir from "@/components/Lists/OnTheAir";
