@@ -23,8 +23,9 @@ export async function tmdbFetch<T>(
   return res.json() as T;
 }
 
-export async function searchResults(query: string) {
+export async function searchResults(query: string, page = 1) {
   return tmdbFetch<TMDBListResponse<MovieListItem>>("/search/movie", {
     query,
+    page: String(page),
   });
 }

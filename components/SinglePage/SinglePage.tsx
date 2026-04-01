@@ -15,7 +15,6 @@ export default function SinglePage({
   cast: People[];
   type: "movie" | "show";
 }) {
-  console.log(single);
   return (
     <div>
       <div className=" absolute top-14 w-full">
@@ -38,16 +37,16 @@ export default function SinglePage({
             alt={single.name || single.title || ""}
             width={185}
             height={278}
-            className="w-[150px] h-[225px] max-md:w-[100px] max-md:h-[150px] rounded-lg border-2 border-primary "
+            className="  max-md:w-[100px] max-lg:w-[150px] w-200px rounded-lg border-2 border-primary "
           />
           <div className="flex flex-col justify-evenly  max-md:gap-6">
-            <h1 className="text-2xl font-bold">
+            <h1 className="text-4xl max-lg:text-2xl font-bold">
               {single.name || single.title} (
               {single.release_date?.slice(0, 4) ||
                 single.first_air_date?.slice(0, 4)}
               )
             </h1>
-            <div className="flex flex-col gap-1 text-sm text-secondary">
+            <div className="flex flex-col gap-1 text-lg  max-lg:text-sm  text-secondary">
               <div>★ {single.vote_average.toFixed(1) || "N/A"}</div>
               <div>{single.genres.map((genre) => `${genre.name}, `)}</div>
               <div className="flex gap-2">

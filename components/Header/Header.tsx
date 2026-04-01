@@ -44,7 +44,7 @@ export default function Header() {
     <header className=" sticky top-0 z-50 border-b-2">
       <div className="  relative bg-black   ">
         <div className=" max-w-7xl mx-auto p-4 flex items-center justify-between flex-wrap gap-8 ">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <Image
               src="/cinepedia_logo.png"
               alt="logo"
@@ -53,7 +53,7 @@ export default function Header() {
               className="h-[40px] w-auto"
             />
             <div className=" text-md order-1 font-medium ">Cinepedia</div>
-          </div>
+          </Link>
 
           <section className="  flex max-md:w-full w-auto max-md:order-3 order-2 justify-center">
             <div className=" flex relative text-sm font-medium uppercase tracking-widest max-md:gap-8 gap-12">
