@@ -1,44 +1,5 @@
 const TMDB_BASE = "https://api.themoviedb.org/3";
-
-// Movie is object inside of TMDBListResponse
-export type Movie = {
-  id: number;
-  title?: string;
-  name?: string;
-  overview: string;
-  poster_path: string | null;
-  backdrop_path: string | null;
-  release_date?: string;
-  first_air_date?: string;
-  vote_average: number;
-  genre_ids: number[];
-  media_type: "movie" | "tv";
-};
-
-export type Single = {
-  id: number;
-  name?: string;
-  title?: string;
-  overview: string;
-  poster_path: string | null;
-  backdrop_path: string | null;
-  release_date?: string;
-  first_air_date?: string;
-  vote_average: number;
-  genres: Genre[];
-  tagline: string;
-  original_language: string;
-};
-type Genre = {
-  id: number;
-  name: string;
-};
-
-export type TMDBListResponse<T> = {
-  page: number;
-  // value of " results" will be in this case Movie{}
-  results: T[];
-};
+import { TMDBListResponse, MovieListItem } from "./typesList";
 
 function getApiKey() {
   const key = process.env.TMDB_API_KEY;
@@ -62,18 +23,8 @@ export async function tmdbFetch<T>(
   return res.json() as T;
 }
 
-export async function getPopularMovies(page = 1) {
-  return tmdbFetch<TMDBListResponse<Movie>>("/movie/popular", {
-    page: String(page),
-  });
-}
-
-export async function searchMovies(query: string) {
-  return tmdbFetch<TMDBListResponse<Movie>>("/search/movie", {
+export async function searchResults(query: string) {
+  return tmdbFetch<TMDBListResponse<MovieListItem>>("/search/movie", {
     query,
   });
-}
-
-export async function getMovieDetails(id: string) {
-  return tmdbFetch<Single>(`/movie/${id}`);
 }

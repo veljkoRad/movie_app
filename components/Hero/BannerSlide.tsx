@@ -28,7 +28,7 @@ export default function BannerSlide({ list }: { list: Movie[] }) {
                   {single.release_date?.slice(0, 4) ||
                     single.first_air_date?.slice(0, 4)}
                 </div>
-                <h1 className="max-md:text-2xl text-4xl font-medium tracking-wide leading-tight">
+                <h1 className="max-md:text-2xl text-4xl font-semibold tracking-wide leading-tight">
                   {single.title || single.name}
                 </h1>
                 <article className="flex gap-5 items-center">

@@ -1,4 +1,4 @@
-import { searchMovies } from "@/lib/tmdb/tmdb";
+import { searchResults } from "@/lib/tmdb/tmdb";
 
 type SearchProps = { searchParams: Promise<{ query?: string }> };
 
@@ -6,7 +6,7 @@ export default async function SearchResults({ searchParams }: SearchProps) {
   const { query } = await searchParams;
   if (!query) return <p>No search query provided.</p>;
 
-  const data = await searchMovies(query);
+  const data = await searchResults(query);
 
   return (
     <main className="p-4">

@@ -10,7 +10,7 @@ const montserat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Movie App",
+  title: "Cinepedia",
   description: "My site created with Next.js 13.4 and Tailwind CSS",
 };
 

@@ -5,14 +5,7 @@ import { getUpcomingMovies } from "@/lib/tmdb/movies";
 async function UpcomingMovies() {
   const data = await getUpcomingMovies();
   const upcomingMovies = data.results.slice(0, 7);
-  return (
-    <Container>
-      <h2>Upcoming</h2>
-      <div className="mt-4">
-        <ListCarousel items={upcomingMovies} type="movie" />
-      </div>
-    </Container>
-  );
+  return <ListCarousel items={upcomingMovies} type="movie" title="Upcoming" />;
 }
 
 export default UpcomingMovies;

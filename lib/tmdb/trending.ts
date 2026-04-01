@@ -1,25 +1,31 @@
-import { tmdbFetch, TMDBListResponse, Movie } from "./tmdb";
+import { tmdbFetch } from "./tmdb";
+import {
+  TMDBListResponse,
+  TrendingListItem,
+  MovieListItem,
+  TvListItem,
+} from "./typesList";
 
 export async function getTrendingAllDay() {
-  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/all/day`);
+  return tmdbFetch<TMDBListResponse<TrendingListItem>>(`/trending/all/day`);
 }
 
 export async function getTrendingAllWeek() {
-  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/all/week`);
+  return tmdbFetch<TMDBListResponse<TrendingListItem>>(`/trending/all/week`);
 }
 
 export async function getTrendingMoviesDay() {
-  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/movie/day`);
+  return tmdbFetch<TMDBListResponse<MovieListItem>>(`/trending/movie/day`);
 }
 
 export async function getTrendingMoviesWeek() {
-  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/movie/week`);
+  return tmdbFetch<TMDBListResponse<MovieListItem>>(`/trending/movie/week`);
 }
 
 export async function getTrendingTvDay() {
-  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/tv/day`);
+  return tmdbFetch<TMDBListResponse<TvListItem>>(`/trending/tv/day`);
 }
 
 export async function getTrendingTvWeek() {
-  return tmdbFetch<TMDBListResponse<Movie>>(`/trending/tv/week`);
+  return tmdbFetch<TMDBListResponse<TvListItem>>(`/trending/tv/week`);
 }

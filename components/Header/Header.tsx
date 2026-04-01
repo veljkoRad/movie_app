@@ -5,6 +5,7 @@ import SearchBar from "./SearchBar";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
+import Image from "next/image";
 
 const tabs = [
   { label: "Trending", path: "/" },
@@ -40,10 +41,20 @@ export default function Header() {
     }
   }, [pathname, isTabRoute, activeIndex]);
   return (
-    <header className=" sticky top-0 z-50">
-      <div className=" border-b-2 relative bg-black   ">
+    <header className=" sticky top-0 z-50 border-b-2">
+      <div className="  relative bg-black   ">
         <div className=" max-w-7xl mx-auto p-4 flex items-center justify-between flex-wrap gap-8 ">
-          <div className=" text-md order-1 ">Cinepedia</div>
+          <div className="flex items-center gap-2">
+            <Image
+              src="/cinepedia_logo.png"
+              alt="logo"
+              width={150}
+              height={165}
+              className="h-[40px] w-auto"
+            />
+            <div className=" text-md order-1 font-medium ">Cinepedia</div>
+          </div>
+
           <section className="  flex max-md:w-full w-auto max-md:order-3 order-2 justify-center">
             <div className=" flex relative text-sm font-medium uppercase tracking-widest max-md:gap-8 gap-12">
               {tabs.map((tab, index) => (
@@ -60,7 +71,7 @@ export default function Header() {
               ))}
               {isTabRoute && (
                 <span
-                  className="absolute bottom-[-20px] max-md:bottom-[-18px] h-[2px] bg-primary transition-all duration-300 ease-in-out"
+                  className="absolute bottom-[-27.2px] max-md:bottom-[-18px] h-[2px] bg-primary transition-all duration-300 ease-in-out"
                   style={{
                     left: indicatorStyle.left,
                     width: indicatorStyle.width,

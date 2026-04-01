@@ -1,17 +1,29 @@
 import Container from "../UI/Container";
 import Image from "next/image";
-import { Single } from "@/lib/tmdb/tmdb";
-import { genres } from "@/lib/genres";
-
-export default function SinglePage({ single }: { single: Single }) {
+import { Single, People } from "@/lib/tmdb/typesList";
+import Cast from "./Cast";
+import SimilarMovies from "@/components/Lists/SimilarMovies";
+import SimilarShows from "@/components/Lists/SimilarShows";
+import RecommendedMovies from "../Lists/RecommendedMovies";
+import RecommendedShows from "../Lists/RecommendedShows";
+export default function SinglePage({
+  single,
+  cast,
+  type,
+}: {
+  single: Single;
+  cast: People[];
+  type: "movie" | "show";
+}) {
   console.log(single);
   return (
     <div>
-      <div className="fixed top-14 w-full">
+      <div className=" absolute top-14 w-full">
         <div className="relative top-0 overflow-hidden  bg-blue">
           <Image
             src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path}`}
             alt={single.name || single.title || ""}
+            loading="eager"
             width={1280}
             height={720}
             className="w-full max-h-[462px] max-lg:aspect-[16/9] max-md:aspect-auto max-md:h-[300px] object-cover opacity-40 mix-blend-luminosity"
@@ -49,6 +61,17 @@ export default function SinglePage({ single }: { single: Single }) {
         <p className="text-secondary font-medium mt-4 max-w-[80ch]">
           {single.overview}
         </p>
+        <Cast people={cast} />
+        {type === "movie" ? (
+          <RecommendedMovies id={single.id.toString()} />
+        ) : (
+          <RecommendedShows id={single.id.toString()} />
+        )}
+        {type === "movie" ? (
+          <SimilarMovies id={single.id.toString()} />
+        ) : (
+          <SimilarShows id={single.id.toString()} />
+        )}
       </Container>
     </div>
   );

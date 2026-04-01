@@ -5,14 +5,7 @@ import { getOnTheAirShows } from "@/lib/tmdb/shows";
 async function OnTheAir() {
   const data = await getOnTheAirShows();
   const onTheAirShows = data.results.slice(0, 7);
-  return (
-    <Container>
-      <h2>On The Air</h2>
-      <div className="mt-4">
-        <ListCarousel items={onTheAirShows} type="show" />
-      </div>
-    </Container>
-  );
+  return <ListCarousel items={onTheAirShows} type="show" title="On The Air" />;
 }
 
 export default OnTheAir;

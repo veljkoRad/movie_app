@@ -33,27 +33,29 @@ function SearchBar({ isVisible, isClosed }: SearchParams) {
   }, [isVisible]);
 
   return (
-    <Container>
-      <form
-        onSubmit={handleSearch}
-        className={`w-full items-center justify-between relative `}
-      >
-        <input
-          ref={inputRef}
-          className="border w-full rounded-full color-black bg-tertiary 
-           py-3 px-4   text-sm placeholder:text-secondary placeholder:font-medium focus:outline-none outline-none focus:border-primary focus:border-2 transition-all duration-150"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Search"
-        />
-        <button
-          type="submit"
-          className="rounded-lg absolute right-8 top-2.5 cursor-pointer"
+    <div className="bg-black">
+      <div className="max-w-7xl mx-auto p-4">
+        <form
+          onSubmit={handleSearch}
+          className={`w-full items-center justify-between relative `}
         >
-          <Search className="w-4" />
-        </button>
-      </form>
-    </Container>
+          <input
+            ref={inputRef}
+            className="border w-full rounded-full color-black bg-tertiary 
+           py-3 px-4   text-sm placeholder:text-secondary placeholder:font-medium focus:outline-none outline-none focus:border-primary focus:border-2 transition-all duration-150"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Search"
+          />
+          <button
+            type="submit"
+            className="rounded-lg absolute right-8 top-2.5 cursor-pointer"
+          >
+            <Search className="w-4" />
+          </button>
+        </form>
+      </div>
+    </div>
   );
 }
 

@@ -31,7 +31,9 @@ export default function BannerSide({ sideList }: { sideList: Movie[] }) {
             />
           </Link>
           <div className="flex flex-col gap-0.5">
-            <div className="text-xs">{single.title || single.name}</div>
+            <div className="text-sm font-semibold">
+              {single.title || single.name}
+            </div>
             <div className="text-xs text-secondary">
               {single.release_date?.slice(0, 4) ||
                 single.first_air_date?.slice(0, 4)}
