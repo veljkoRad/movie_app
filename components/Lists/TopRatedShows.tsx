@@ -1,5 +1,4 @@
 import ListCarousel from "@/components/Lists/ListCarousel";
-import Container from "../UI/Container";
 import { getTopRatedShows } from "@/lib/tmdb/shows";
 
 async function TopRatedShows() {

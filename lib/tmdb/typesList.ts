@@ -54,3 +54,5 @@ export type People = {
   character: string;
   name: string;
 };
+
+export type MediaListItem = MovieListItem | TvListItem | TrendingListItem;

@@ -1,6 +1,5 @@
 import { getTrendingAllWeek } from "@/lib/tmdb/trending";
 import ListCarousel from "@/components/Lists/ListCarousel";
-import Container from "../UI/Container";
 
 async function TrendingWeek() {
   const data = await getTrendingAllWeek();

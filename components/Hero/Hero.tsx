@@ -1,14 +1,14 @@
 import BannerSlide from "./BannerSlide";
 import BannerSide from "./BannerSide";
 import Container from "../UI/Container";
-import { Movie } from "@/lib/tmdb/tmdb";
+import type { TrendingListItem } from "@/lib/tmdb/typesList";
 
 export default function Hero({
   list,
   sideList,
 }: {
-  list: Movie[];
-  sideList: Movie[];
+  list: TrendingListItem[];
+  sideList: TrendingListItem[];
 }) {
   return (
     <Container>

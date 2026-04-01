@@ -2,9 +2,15 @@ import Link from "next/link";
 import { Maximize2 } from "lucide-react";
 import Carousel from "./Carousel";
 import { genres } from "@/lib/genres";
-import { Movie } from "@/lib/tmdb/tmdb";
+import type { TrendingListItem } from "@/lib/tmdb/typesList";
+import {
+  getMediaHref,
+  getMediaTitle,
+  getMediaYear,
+  getPreferredImageUrl,
+} from "@/lib/tmdb/media";
 
-export default function BannerSlide({ list }: { list: Movie[] }) {
+export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
   return (
     <section className="min-w-0">
       <Carousel>
@@ -13,23 +19,14 @@ export default function BannerSlide({ list }: { list: Movie[] }) {
             key={single.id}
             className="w-full h-[462px] max-lg:h-auto max-lg:aspect-[16/9] max-sm:aspect-[4/3] bg-cover bg-center rounded-[40px] p-6 flex items-end"
             style={{
-              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), transparent), url(${
-                single.backdrop_path
-                  ? `https://image.tmdb.org/t/p/w1280${single.backdrop_path}`
-                  : single.poster_path
-                    ? `https://image.tmdb.org/t/p/w1280${single.poster_path}`
-                    : "/placeholder.jpg"
-              })`,
+              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), transparent), url(${getPreferredImageUrl(single, "w1280")})`,
             }}
           >
             <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full">
               <div className="text-white flex flex-col gap-3">
-                <div className="font-semibold opacity-70">
-                  {single.release_date?.slice(0, 4) ||
-                    single.first_air_date?.slice(0, 4)}
-                </div>
+                <div className="font-semibold opacity-70">{getMediaYear(single)}</div>
                 <h1 className="max-md:text-2xl text-4xl font-semibold tracking-wide leading-tight">
-                  {single.title || single.name}
+                  {getMediaTitle(single)}
                 </h1>
                 <article className="flex gap-5 items-center">
                   <div className="font-semibold mt-1 max-sm:hidden text-secondary">
@@ -47,13 +44,7 @@ export default function BannerSlide({ list }: { list: Movie[] }) {
               </div>
 
               <Link
-                href={
-                  single.media_type === "movie"
-                    ? `/movie/${single.id}`
-                    : single.media_type === "tv"
-                      ? `/tv/${single.id}`
-                      : "/404"
-                }
+                href={getMediaHref(single)}
                 className="bg-blue backdrop-blur max-sm:px-4 max-sm:py-1 px-5 py-2 rounded-full border border-white/10 
                      transition-all duration-300 hover:scale-110 "
               >
