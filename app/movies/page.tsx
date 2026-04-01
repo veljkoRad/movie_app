@@ -10,8 +10,12 @@ import WrapperBg from "@/components/UI/WrapperBg";
 
 async function Movies() {
   const dataTrendingMoviesDay = await getTrendingMoviesDay();
-  const trendingMoviesDay = dataTrendingMoviesDay.results.slice(0, 4);
-  const trendingMoviesDaySide = dataTrendingMoviesDay.results.slice(4, 7);
+  const trendingMoviesDay = dataTrendingMoviesDay.results
+    .slice(0, 4)
+    .map((item) => ({ ...item, media_type: "movie" as const }));
+  const trendingMoviesDaySide = dataTrendingMoviesDay.results
+    .slice(4, 7)
+    .map((item) => ({ ...item, media_type: "movie" as const }));
   const dataImage = trendingMoviesDay[0].backdrop_path;
 
   return (

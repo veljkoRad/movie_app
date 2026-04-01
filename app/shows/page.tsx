@@ -8,8 +8,12 @@ import TopRatedShows from "@/components/Lists/TopRatedShows";
 import WrapperBg from "@/components/UI/WrapperBg";
 async function Shows() {
   const dataTrendingTvDay = await getTrendingTvDay();
-  const trendingTvDay = dataTrendingTvDay.results.slice(0, 4);
-  const trendingTvDaySide = dataTrendingTvDay.results.slice(4, 7);
+  const trendingTvDay = dataTrendingTvDay.results
+    .slice(0, 4)
+    .map((item) => ({ ...item, media_type: "tv" as const }));
+  const trendingTvDaySide = dataTrendingTvDay.results
+    .slice(4, 7)
+    .map((item) => ({ ...item, media_type: "tv" as const }));
   const dataImage = trendingTvDay[0].backdrop_path;
   return (
     <WrapperBg image={dataImage}>
