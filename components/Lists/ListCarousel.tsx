@@ -12,7 +12,7 @@ type ListCarouselProps = {
   items: CarouselItem[];
   type?: "movie" | "show";
   title: string;
-  browse: string;
+  browse?: string;
 };
 
 export default function ListCarousel({
