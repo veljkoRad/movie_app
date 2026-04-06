@@ -49,7 +49,7 @@ export default function Cast({ people }: { people: Person[] }) {
           <button
             type="button"
             onClick={() => emblaApi?.scrollPrev()}
-            className="hidden lg:flex absolute left-0 top-1/2 -translate-y-[100%] z-10 bg-black/70 rounded-full p-2 group"
+            className="hidden lg:flex absolute left-0 top-1/2 -translate-y-[100%] z-10 bg-black/70 rounded-full p-2 group cursor-pointer"
             aria-label="Scroll cast left"
           >
             <ChevronLeft
@@ -62,7 +62,7 @@ export default function Cast({ people }: { people: Person[] }) {
           <button
             type="button"
             onClick={() => emblaApi?.scrollNext()}
-            className="hidden lg:flex absolute right-0 top-1/2 -translate-y-[100%] z-10 bg-black/70 rounded-full p-2 group"
+            className="hidden lg:flex absolute right-0 top-1/2 -translate-y-[100%] z-10 bg-black/70 rounded-full p-2 group cursor-pointer"
             aria-label="Scroll cast right"
           >
             <ChevronRight

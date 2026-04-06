@@ -1,5 +1,5 @@
 const TMDB_BASE = "https://api.themoviedb.org/3";
-import { TMDBListResponse, MovieListItem } from "./typesList";
+import { TMDBListResponse, TrendingListItem } from "./typesList";
 
 function getApiKey() {
   const key = process.env.TMDB_API_KEY;
@@ -24,7 +24,7 @@ export async function tmdbFetch<T>(
 }
 
 export async function searchResults(query: string, page = 1) {
-  return tmdbFetch<TMDBListResponse<MovieListItem>>("/search/movie", {
+  return tmdbFetch<TMDBListResponse<TrendingListItem>>("/search/multi", {
     query,
     page: String(page),
   });

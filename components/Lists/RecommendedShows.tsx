@@ -9,6 +9,7 @@ async function RecommendedShows({ id }: { id: string }) {
       items={recommendedShows}
       type="show"
       title="Recommended Shows"
+      browse="recommended"
     />
   );
 }

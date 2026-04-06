@@ -5,7 +5,12 @@ async function NowPlaying() {
   const data = await getNowPlayingMovies();
   const nowPlayingMovies = data.results.slice(0, 7);
   return (
-    <ListCarousel items={nowPlayingMovies} type="movie" title="Now Playing" />
+    <ListCarousel
+      items={nowPlayingMovies}
+      type="movie"
+      title="Now Playing"
+      browse="now-playing"
+    />
   );
 }
 

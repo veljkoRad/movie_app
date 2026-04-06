@@ -6,7 +6,7 @@ async function TrendingWeek() {
   const items = data.results
     .filter((item) => item.media_type === "movie" || item.media_type === "tv")
     .slice(0, 7);
-  return <ListCarousel items={items} title="This Week" />;
+  return <ListCarousel items={items} title="This Week" browse="trending" />;
 }
 
 export default TrendingWeek;

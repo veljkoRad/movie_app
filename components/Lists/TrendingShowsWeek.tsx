@@ -9,6 +9,7 @@ async function TrendingShowsWeek() {
       items={trendingShowsWeek}
       type="show"
       title="Trending This Week"
+      browse="trending"
     />
   );
 }

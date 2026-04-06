@@ -4,6 +4,7 @@ export type TMDBListResponse<T> = {
   page: number;
   // value of " results" will be in this case Movie{}
   results: T[];
+  total_pages: number;
 };
 
 type BaseListItem = {
