@@ -18,15 +18,15 @@ export default function ToggleTheme() {
   return (
     <button
       onClick={toggle}
-      className="w-13 max-sm:w-10 bg-pure rounded-full border-secondary border-2 cursor-pointer"
+      className="w-[40px]  bg-pure rounded-full border-secondary border-2 cursor-pointer"
     >
       {theme === "dark" ? (
         <div className="bg-secondary p-1 rounded-full w-min translate-x-0 transition-all duration-600 ease-in-out ">
-          <Sun className="w-5 max-sm:w-4 max-sm:h-4 h-5" color="black" />
+          <Sun className="w-4 h-4" color="black" />
         </div>
       ) : (
-        <div className="bg-secondary p-1 rounded-full w-min translate-x-5 max-sm:translate-x-3 transition-all duration-600 ease-in-out ">
-          <Moon className="w-5 max-sm:w-4 max-sm:h-4 h-5" color="white" />
+        <div className="bg-secondary p-1 rounded-full w-min translate-x-3 transition-all duration-600 ease-in-out ">
+          <Moon className="w-4 h-4" color="white" />
         </div>
       )}
     </button>
