@@ -50,14 +50,14 @@ export default function ListCarousel({
 
   return (
     <Container>
-      <div className="flex justify-between items-center">
+      <div className="flex justify-between items-center gap-8">
         <h2 className="text-xl font-bold">{title}</h2>
         {browse && (
           <Link
             href={`/${type === "movie" ? "movies" : "shows"}/${browse}`}
             className="flex gap-1 items-center hover:text-blue transition-all duration-300 cursor-pointer"
           >
-            <p className="text-sm font-medium">See All</p>
+            <p className="text-sm font-medium whitespace-nowrap">See All</p>
             <ChevronRight size={20} />
           </Link>
         )}
@@ -90,8 +90,8 @@ export default function ListCarousel({
                   <p className="text-sm font-medium">
                     {"title" in single ? single.title : single.name}
                   </p>
-                  <p className="text-xs text-secondary font-medium">
-                    ★
+                  <p className="text-xs text-secondary font-semibold">
+                    ⭐
                     {single.vote_average > 0
                       ? single.vote_average.toFixed(1)
                       : "N/A"}

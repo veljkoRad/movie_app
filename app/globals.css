@@ -3,18 +3,37 @@
 @theme {
   /* Initial means override tailwind default colors */
   --color-*: initial;
-  --color-primary: #ffffff;
-  --color-secondary: #a1a1aa;
+
+  --color-primary: var(--c-primary);
+  --color-secondary: var(--c-secondary);
   --color-tertiary: #6b7280;
   --color-forth: #e5e7eb;
+  --color-pure: var(--c-pure);
 
-  --color-black: #0b0b0d;
-  --color-hover: #1a1a22;
-  --color-card: #121217;
+  --color-black: var(--c-bg);
+  --color-white: #ffffff;
   --color-blue: #2563eb;
 
-  --color-border: rgba(255, 255, 255, 0.08);
-  --divider: rgba(255, 255, 255, 0.05);
+  --color-bor: var(--c-border);
+}
+
+:root[data-theme="light"] {
+  --c-bg: #f4f7f8;
+  --c-primary: #000000;
+  --c-secondary: #74777f;
+  --overlay-soft: rgba(244, 247, 248, 0.8);
+  --overlay-strong: rgba(244, 247, 248, 1);
+  --c-pure: #ffffff;
+  --c-border: rgba(0, 0, 0, 0.1);
+}
+:root[data-theme="dark"] {
+  --c-bg: #0b0b0d;
+  --c-primary: #ffffff;
+  --c-secondary: #a1a1aa;
+  --overlay-soft: rgba(11, 11, 13, 0.8);
+  --overlay-strong: rgba(11, 11, 13, 1);
+  --c-pure: #0b0b0d;
+  --c-border: rgba(255, 255, 255, 0.1);
 }
 
 @layer base {
@@ -26,11 +45,5 @@
     /* This ensures a smooth font smoothing on Mac */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-  }
-
-  *,
-  ::after,
-  ::before {
-    border-color: var(--color-border);
   }
 }

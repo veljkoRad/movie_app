@@ -23,7 +23,7 @@ export default function WrapperBg({
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, rgba(11,11,13,0.9) 0%, rgba(11,11,13,1) 60%",
+              "linear-gradient(to bottom, var(--overlay-soft) 0%, var(--overlay-strong) 60%",
           }}
         />
         <div className="relative">{children}</div>

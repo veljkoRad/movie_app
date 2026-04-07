@@ -23,19 +23,19 @@ export default function BannerSide({
               className="object-cover rounded-lg hover:opacity-20 transition-all duration-300 min-w-50.5 w-50.5 h-32.5"
             />
           </Link>
-          <div className="flex flex-col gap-0.5">
-            <div className="text-sm font-semibold">
+          <div className="flex flex-col gap-0.5 font-semibold">
+            <div className=" ">
               {"name" in single ? single.name : single.title}
             </div>
-            <div className="text-xs text-secondary">
+            <div className="text-sm text-secondary ">
               {"release_date" in single
                 ? single.release_date?.slice(0, 4)
                 : "first_air_date" in single
                   ? single.first_air_date?.slice(0, 4)
                   : "N/A"}
             </div>
-            <div className="text-xs text-secondary">
-              ★
+            <div className="text-sm text-secondary">
+              ⭐
               {single.vote_average > 0 ? single.vote_average.toFixed(1) : "N/A"}
             </div>
           </div>

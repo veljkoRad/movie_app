@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={montserat.className}>
+    <html lang="en" className={montserat.className} data-theme="dark">
       <body>
         <Header />
         {children}

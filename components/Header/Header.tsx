@@ -6,6 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
+import ToggleTheme from "./ToggleTheme";
 
 const tabs = [
   { label: "Trending", path: "/" },
@@ -41,8 +42,8 @@ export default function Header() {
     }
   }, [pathname, isTabRoute, activeIndex]);
   return (
-    <header className=" sticky top-0 z-50 border-b-2">
-      <div className="  relative bg-black   ">
+    <header className=" sticky top-0 z-50 border-b-2 border-bor">
+      <div className="  relative bg-pure   ">
         <div className=" max-w-7xl mx-auto p-4 flex items-center justify-between flex-wrap gap-8 ">
           <Link href="/" className="flex items-center gap-2">
             <Image
@@ -80,12 +81,12 @@ export default function Header() {
               )}
             </div>
           </section>
-          <button
-            onClick={getSearch}
-            className="max-md:order-2 order-3 cursor-pointer"
-          >
-            <Search className="w-5 " />
-          </button>
+          <div className="max-md:order-2 order-3 flex  gap-4 items-center">
+            <button onClick={getSearch} className="cursor-pointer">
+              <Search className="w-5 " />
+            </button>
+            <ToggleTheme />
+          </div>
         </div>
       </div>
       <div

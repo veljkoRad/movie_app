@@ -104,7 +104,7 @@ export default async function BrowseByList({ params, searchParams }: Props) {
         {currentPage > 1 && (
           <Link
             href={`/${media}/${list}?page=${currentPage - 1}`}
-            className="px-4 py-2 rounded border hover:text-blue transition-all duration-300 "
+            className="px-4 py-2 rounded border-2 border-bor hover:text-blue transition-all duration-300 "
           >
             <ChevronLeft size={30} />
           </Link>
@@ -112,7 +112,7 @@ export default async function BrowseByList({ params, searchParams }: Props) {
         {currentPage < totalPages && (
           <Link
             href={`/${media}/${list}?page=${currentPage + 1}`}
-            className="px-4 py-2 rounded border hover:text-blue transition-all duration-300  "
+            className="px-4 py-2 rounded border-2 border-bor  hover:text-blue transition-all duration-300  "
           >
             <ChevronRight size={30} />
           </Link>

@@ -33,7 +33,7 @@ function SearchBar({ isVisible, isClosed }: SearchParams) {
   }, [isVisible]);
 
   return (
-    <div className="bg-black">
+    <div className="bg-pure">
       <div className="max-w-7xl mx-auto p-4">
         <form
           onSubmit={handleSearch}
@@ -41,8 +41,8 @@ function SearchBar({ isVisible, isClosed }: SearchParams) {
         >
           <input
             ref={inputRef}
-            className="border w-full rounded-full color-black bg-tertiary 
-           py-3 px-4   text-sm placeholder:text-secondary placeholder:font-medium focus:outline-none outline-none focus:border-primary focus:border-2 transition-all duration-150"
+            className=" w-full rounded-full color-black bg-black 
+           py-3 px-4   text-sm placeholder:text-secondary placeholder:font-medium focus:outline-none outline-none focus:border-secondary focus:border-2 "
             value={query}
             onChange={(e) => setQuery(e.target.value)}
             placeholder="Search"

@@ -47,6 +47,8 @@ export type Single = {
   genres: Genre[];
   tagline: string;
   original_language: string;
+  runtime?: number;
+  number_of_seasons?: number;
 };
 
 export type People = {

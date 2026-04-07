@@ -18,7 +18,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
           >
             <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full">
               <div className="text-white flex flex-col gap-3">
-                <div className="font-semibold opacity-70">
+                <div className="font-semibold ">
                   {"release_date" in single
                     ? single.release_date?.slice(0, 4)
                     : "first_air_date" in single
@@ -29,14 +29,14 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
                   {"title" in single ? single.title : single.name}
                 </h1>
                 <article className="flex gap-5 items-center">
-                  <div className="font-semibold mt-1 max-sm:hidden text-secondary">
-                    ★ {""}
+                  <div className="font-semibold mt-1 max-sm:hidden text-white">
+                    ⭐{""}
                     {single.vote_average > 0
                       ? single.vote_average.toFixed(1)
                       : "N/A"}
                   </div>
-                  {single.genre_ids?.[0] !== undefined ? (
-                    <div className="px-3 py-0.5 border border-white bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white max-sm:hidden">
+                  {genres[single.genre_ids[0] as keyof typeof genres] ? (
+                    <div className="px-3 py-0.5  bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white max-sm:hidden">
                       {genres[single.genre_ids[0] as keyof typeof genres]}
                     </div>
                   ) : null}
@@ -48,7 +48,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
                 className="bg-blue backdrop-blur max-sm:px-4 max-sm:py-1 px-5 py-2 rounded-full border border-white/10 
                      transition-all duration-300 hover:scale-110 "
               >
-                <Maximize2 className="max-sm:w-5 max-sm-h-5 w-8 h-8" />
+                <Maximize2 className="max-sm:w-5 max-sm-h-5 w-8 h-8 text-white" />
               </Link>
             </section>
           </div>
