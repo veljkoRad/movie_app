@@ -53,3 +53,10 @@ export async function getTopRatedMovies(page = 1) {
     page: String(page),
   });
 }
+
+export async function getMoviesByGenre(genreId: string, page = 1) {
+  return tmdbFetch<TMDBListResponse<MovieListItem>>("/discover/movie", {
+    with_genres: genreId,
+    page: String(page),
+  });
+}

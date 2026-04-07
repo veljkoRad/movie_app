@@ -13,6 +13,7 @@
   --color-black: var(--c-bg);
   --color-white: #ffffff;
   --color-blue: #2563eb;
+  --color-card: var(--c-card);
 
   --color-bor: var(--c-border);
 }
@@ -25,6 +26,7 @@
   --overlay-strong: rgba(244, 247, 248, 1);
   --c-pure: #ffffff;
   --c-border: rgba(0, 0, 0, 0.1);
+  --c-card: #0b0b0d;
 }
 :root[data-theme="dark"] {
   --c-bg: #0b0b0d;
@@ -34,6 +36,7 @@
   --overlay-strong: rgba(11, 11, 13, 1);
   --c-pure: #0b0b0d;
   --c-border: rgba(255, 255, 255, 0.1);
+  --c-card: #0b0b0d;
 }
 
 @layer base {

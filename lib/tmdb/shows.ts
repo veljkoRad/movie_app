@@ -43,3 +43,10 @@ export async function getTopRatedShows(page = 1) {
     page: String(page),
   });
 }
+
+export async function getShowsByGenre(genreId: string, page = 1) {
+  return tmdbFetch<TMDBListResponse<TvListItem>>("/discover/tv", {
+    with_genres: genreId,
+    page: String(page),
+  });
+}

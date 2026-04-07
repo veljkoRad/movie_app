@@ -18,6 +18,7 @@ import UpcomingMovies from "@/components/Lists/UpcomingMovies";
 import DiscoverMovies from "@/components/Lists/DiscoverMovies";
 import TrendingMoviesWeek from "@/components/Lists/TrendingMoviesWeek";
 import NowPlaying from "@/components/Lists/NowPlaying";
+import GenreTabs from "@/components/Genres/GenreTabs";
 
 type MediaPageProps = {
   params: Promise<{ media: string }>;
@@ -37,6 +38,7 @@ async function MediaPage({ params }: MediaPageProps) {
     return (
       <WrapperBg image={dataImage}>
         <Hero list={trendingTvDay} sideList={trendingTvDaySide} />
+        <GenreTabs media="shows" />
         <PopularShows />
         <TopRatedShows />
         <TrendingShowsWeek />
@@ -58,6 +60,7 @@ async function MediaPage({ params }: MediaPageProps) {
     return (
       <WrapperBg image={dataImage}>
         <Hero list={trendingMoviesDay} sideList={trendingMoviesDaySide} />
+        <GenreTabs media="movies" />
         <PopularMovies />
         <TopRatedMovies />
         <TrendingMoviesWeek />
