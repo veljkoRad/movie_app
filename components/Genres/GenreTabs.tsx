@@ -15,7 +15,7 @@ export default function GenreTabs({ media }: { media: "movies" | "shows" }) {
     <Container>
       <p className="text-xl text-primary font-semibold">Find by genre</p>
       <div
-        className=" overflow-hidden cursor-grab  active:cursor-grabbing select-none mt-4  "
+        className=" overflow-hidden cursor-grab  active:cursor-grabbing  mt-4  "
         ref={emblaRef}
       >
         <div className="flex gap-4 max-sm:gap-2 ">

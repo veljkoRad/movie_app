@@ -14,7 +14,7 @@ export default function Footer() {
           alt="logo"
           width={150}
           height={165}
-          className="h-[70px] max-md:h-[40px] w-auto"
+          className="h-[40px] max-md:h-[35px] w-auto"
         />
       </button>
       <div>© {new Date().getFullYear()} Cinepedia All rights reserved.</div>

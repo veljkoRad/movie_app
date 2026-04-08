@@ -8,7 +8,7 @@ async function RecommendedShows({ id }: { id: string }) {
     <ListCarousel
       items={recommendedShows}
       type="show"
-      title="Recommended Shows"
+      title="Recommended"
       browse="recommended"
     />
   );

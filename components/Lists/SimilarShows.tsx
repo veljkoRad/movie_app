@@ -8,7 +8,7 @@ async function SimilarShows({ id }: { id: string }) {
     <ListCarousel
       items={similarShows}
       type="show"
-      title="Similar Shows"
+      title="Similar"
       browse="similar"
     />
   );

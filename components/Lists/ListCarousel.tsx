@@ -63,7 +63,7 @@ export default function ListCarousel({
         )}
       </div>
       <div
-        className="mt-4 overflow-hidden xl:overflow-visible cursor-grab  active:cursor-grabbing xl:cursor-default select-none xl:select-auto"
+        className="mt-4 overflow-hidden xl:overflow-visible cursor-grab  active:cursor-grabbing xl:cursor-default  xl:select-auto"
         ref={emblaRef}
       >
         <div className="flex">
@@ -72,7 +72,7 @@ export default function ListCarousel({
               <Link
                 href={checkType(single)}
                 key={single.id}
-                className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1 select-none mr-4 aspect-[2/3] "
+                className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1  mr-4 aspect-[2/3] "
               >
                 <Image
                   src={
@@ -83,7 +83,7 @@ export default function ListCarousel({
                   alt={"title" in single ? single.title : single.name}
                   width={185}
                   height={278}
-                  className="rounded-2xl  select-none hover:scale-105 transition-all duration-300 "
+                  className="rounded-2xl   hover:scale-105 transition-all duration-300 "
                   draggable={false}
                 />
                 <div className="flex flex-col gap-0.5 max-sm:hidden">

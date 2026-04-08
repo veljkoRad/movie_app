@@ -49,7 +49,7 @@ export default async function SearchResults({ searchParams }: SearchProps) {
         {currentPage > 1 && (
           <Link
             href={`/search-results?query=${encodeURIComponent(query)}&page=${currentPage - 1}`}
-            className="px-4 py-2 rounded border-2 border-bor hover:text-blue transition-all duration-300  "
+            className="px-5 py-1 rounded-xl border-2 border-bor  hover:text-blue transition-all duration-300  "
           >
             <ChevronLeft size={30} />
           </Link>
@@ -57,7 +57,7 @@ export default async function SearchResults({ searchParams }: SearchProps) {
         {currentPage < totalPages && (
           <Link
             href={`/search-results?query=${encodeURIComponent(query)}&page=${currentPage + 1}`}
-            className="px-4 py-2 rounded border-2 border-bor hover:text-blue transition-all duration-300 "
+            className="px-5 py-1 rounded-xl border-2 border-bor  hover:text-blue transition-all duration-300 "
           >
             <ChevronRight size={30} />
           </Link>

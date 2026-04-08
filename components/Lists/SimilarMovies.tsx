@@ -8,7 +8,7 @@ async function SimilarMovies({ id }: { id: string }) {
     <ListCarousel
       items={similarMovies}
       type="movie"
-      title="Similar Movies"
+      title="Similar"
       browse="similar"
     />
   );

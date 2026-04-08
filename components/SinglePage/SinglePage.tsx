@@ -6,6 +6,7 @@ import SimilarMovies from "@/components/Lists/SimilarMovies";
 import SimilarShows from "@/components/Lists/SimilarShows";
 import RecommendedMovies from "../Lists/RecommendedMovies";
 import RecommendedShows from "../Lists/RecommendedShows";
+import Link from "next/link";
 export default function SinglePage({
   single,
   cast,
@@ -44,7 +45,7 @@ export default function SinglePage({
             height={278}
             className="  max-md:w-[100px] max-lg:w-[150px] w-200px rounded-lg border-2 border-primary "
           />
-          <div className="flex flex-col justify-center  gap-6">
+          <div className="flex flex-col justify-evenly  ">
             <h1 className="text-4xl max-lg:text-2xl font-bold">
               {single.name || single.title} (
               {single.release_date?.slice(0, 4) ||
@@ -52,8 +53,18 @@ export default function SinglePage({
               )
             </h1>
             <div className="flex flex-col gap-1 text-md  max-lg:text-sm  text-primary">
+              <div className="flex gap-2">
+                {single.genres.map((genre) => (
+                  <Link
+                    href={`/${type === "movie" ? "movie" : "tv"}/genre/${genre.id}`}
+                    key={genre.id}
+                    className="text-blue "
+                  >
+                    {genre.name},
+                  </Link>
+                ))}
+              </div>
               <div>⭐ {single.vote_average.toFixed(1) || "N/A"}</div>
-              <div>{single.genres.map((genre) => `${genre.name}, `)}</div>
               {type === "movie" && (
                 <div>{formatRuntime(single.runtime ?? 0)}</div>
               )}
