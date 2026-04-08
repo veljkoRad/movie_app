@@ -83,7 +83,7 @@ export default function ListCarousel({
                   alt={"title" in single ? single.title : single.name}
                   width={185}
                   height={278}
-                  className="rounded-2xl  select-none "
+                  className="rounded-2xl  select-none hover:scale-105 transition-all duration-300 "
                   draggable={false}
                 />
                 <div className="flex flex-col gap-0.5 max-sm:hidden">

@@ -34,9 +34,8 @@ async function MediaPage({ params }: MediaPageProps) {
     const trendingTvDaySide = dataTrendingTvDay.results
       .slice(4, 7)
       .map((item) => ({ ...item, media_type: "tv" as const }));
-    const dataImage = trendingTvDay[0].backdrop_path;
     return (
-      <WrapperBg image={dataImage}>
+      <WrapperBg>
         <Hero list={trendingTvDay} sideList={trendingTvDaySide} />
         <GenreTabs media="shows" />
         <PopularShows />
@@ -58,7 +57,7 @@ async function MediaPage({ params }: MediaPageProps) {
     const dataImage = trendingMoviesDay[0].backdrop_path;
 
     return (
-      <WrapperBg image={dataImage}>
+      <WrapperBg>
         <Hero list={trendingMoviesDay} sideList={trendingMoviesDaySide} />
         <GenreTabs media="movies" />
         <PopularMovies />

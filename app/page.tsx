@@ -16,10 +16,9 @@ export default async function HomePage() {
   const trendingAllDaySide = dataTrendingAllDay.results
     .filter((item) => item.media_type === "movie" || item.media_type === "tv")
     .slice(4, 7);
-  const dataImage = trendingAllDay[0].backdrop_path;
 
   return (
-    <WrapperBg image={dataImage}>
+    <WrapperBg>
       <Hero list={trendingAllDay} sideList={trendingAllDaySide} />
       <TrendingWeek />
       <UpcomingMovies />

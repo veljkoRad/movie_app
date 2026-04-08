@@ -1,4 +1,3 @@
-import { Swords } from "lucide-react";
 export const genres = {
   28: "Action",
   12: "Adventure",

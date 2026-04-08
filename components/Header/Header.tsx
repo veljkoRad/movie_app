@@ -57,12 +57,11 @@ export default function Header() {
           </Link>
 
           <section className="  flex max-md:w-full w-auto max-md:order-3 order-2 justify-center">
-            <div className=" flex relative text-sm font-medium uppercase tracking-widest max-md:gap-8 gap-12">
+            <div className=" flex relative text-sm max-sm:text-xs text-center font-medium uppercase max-sm:tracking-[1.5px] tracking-[3px] max-md:gap-8 gap-12">
               {tabs.map((tab, index) => (
                 <Link
                   key={tab.path}
                   href={tab.path}
-                  className=" text-center"
                   ref={(el) => {
                     tabsRef.current[index] = el;
                   }}

@@ -34,7 +34,7 @@ export default async function SearchResults({ searchParams }: SearchProps) {
               alt={"title" in result ? result.title : result.name}
               width={256}
               height={384}
-              className="object-cover object-center rounded-lg h-[342px] max-md:h-[225px] max-sm:h-[135px] "
+              className="object-cover object-center rounded-lg h-[342px] max-md:h-[225px] max-sm:h-[135px] hover:scale-105 transition-all duration-300 "
             />
             <p
               className="text-gray-950 font-semibold max-sm:hidden"

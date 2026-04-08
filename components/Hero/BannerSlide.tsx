@@ -1,8 +1,8 @@
 import Link from "next/link";
-import { Maximize2 } from "lucide-react";
 import Carousel from "./Carousel";
 import { genres } from "@/lib/genres";
 import type { TrendingListItem } from "@/lib/tmdb/typesList";
+import { ChevronsRight, CornerUpRight } from "lucide-react";
 
 export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
   return (
@@ -17,39 +17,51 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
             }}
           >
             <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full">
-              <div className="text-white flex flex-col gap-3">
-                <div className="font-semibold ">
-                  {"release_date" in single
-                    ? single.release_date?.slice(0, 4)
-                    : "first_air_date" in single
-                      ? single.first_air_date?.slice(0, 4)
-                      : "N/A"}
-                </div>
-                <h1 className="max-md:text-2xl text-4xl font-semibold tracking-wide leading-tight">
-                  {"title" in single ? single.title : single.name}
-                </h1>
+              <div className="text-white flex flex-col gap-3 items-start">
                 <article className="flex gap-5 items-center">
-                  <div className="font-semibold mt-1 max-sm:hidden text-white">
-                    ⭐{""}
-                    {single.vote_average > 0
-                      ? single.vote_average.toFixed(1)
-                      : "N/A"}
-                  </div>
-                  {genres[single.genre_ids[0] as keyof typeof genres] ? (
-                    <div className="px-3 py-0.5  bg-blue backdrop-blur-md rounded-full text-[12px] font-semibold uppercase tracking-wider text-white max-sm:hidden">
-                      {genres[single.genre_ids[0] as keyof typeof genres]}
+                  {Array.isArray(single.genre_ids) &&
+                  single.genre_ids.length > 0 ? (
+                    <div className="flex gap-2 max-sm:hidden">
+                      {single.genre_ids
+                        .slice(0, 2)
+                        .map((id) => genres[id as keyof typeof genres])
+                        .filter(Boolean)
+                        .map((genre) => (
+                          <span
+                            key={genre}
+                            className="text-white text-xs inline-flex px-3 py-1.5 rounded-lg bg-white/20 backdrop-blur-md "
+                          >
+                            {genre}
+                          </span>
+                        ))}
                     </div>
                   ) : null}
                 </article>
+                <h1 className="max-sm:text-2xl text-4xl font-semibold tracking-wide leading-tight">
+                  {"title" in single ? single.title : single.name}
+                </h1>
+                <p className="text-white/70 text-sm max-sm:hidden font-medium  max-w-[65ch]">
+                  {single.overview.length > 200
+                    ? single.overview.slice(0, 200) + "..."
+                    : single.overview}
+                </p>
+                <Link
+                  href={`${single.media_type === "movie" ? "/movie" : "/tv"}/${single.id}`}
+                  className=" flex items-center justify-flex-start gap-0.5 max-sm:px-2 px-4 max-sm:py-2 py-2.5 bg-white text-sm max-sm:text-xs text-card font-bold  rounded-lg   hover:scale-105 transition-all duration-300 "
+                >
+                  Explore
+                  <ChevronsRight className="w-4 h-auto" />
+                </Link>
               </div>
-
-              <Link
-                href={`${single.media_type === "movie" ? "/movie" : "/tv"}/${single.id}`}
-                className="bg-blue backdrop-blur max-sm:px-4 max-sm:py-1 px-5 py-2 rounded-full border border-white/10 
-                     transition-all duration-300 hover:scale-110 "
-              >
-                <Maximize2 className="max-sm:w-5 max-sm-h-5 w-8 h-8 text-white" />
-              </Link>
+              <div>
+                <div className="font-semibold mt-1 max-lg:hidden text-xl text-white tracking-wider">
+                  ⭐
+                  {single.vote_average > 0
+                    ? single.vote_average.toFixed(1)
+                    : "N/A"}
+                  <span className="text-white/80 text-sm">/10</span>
+                </div>
+              </div>
             </section>
           </div>
         ))}

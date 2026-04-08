@@ -21,11 +21,11 @@ export default function ToggleTheme() {
       className="w-[40px]  bg-pure rounded-full border-secondary border-2 cursor-pointer"
     >
       {theme === "dark" ? (
-        <div className="bg-secondary p-1 rounded-full w-min translate-x-0 transition-all duration-600 ease-in-out ">
+        <div className="bg-primary p-1 rounded-full w-min translate-x-0 transition-all duration-600 ease-in-out ">
           <Sun className="w-4 h-4" color="black" />
         </div>
       ) : (
-        <div className="bg-secondary p-1 rounded-full w-min translate-x-3 transition-all duration-600 ease-in-out ">
+        <div className="bg-primary p-1 rounded-full w-min translate-x-3 transition-all duration-600 ease-in-out ">
           <Moon className="w-4 h-4" color="white" />
         </div>
       )}

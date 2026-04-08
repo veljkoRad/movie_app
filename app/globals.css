@@ -22,7 +22,7 @@
   --c-bg: #f4f7f8;
   --c-primary: #000000;
   --c-secondary: #74777f;
-  --overlay-soft: rgba(244, 247, 248, 0.8);
+  --overlay-soft: rgba(244, 247, 248, 0.85);
   --overlay-strong: rgba(244, 247, 248, 1);
   --c-pure: #ffffff;
   --c-border: rgba(0, 0, 0, 0.1);
@@ -32,7 +32,7 @@
   --c-bg: #0b0b0d;
   --c-primary: #ffffff;
   --c-secondary: #a1a1aa;
-  --overlay-soft: rgba(11, 11, 13, 0.8);
+  --overlay-soft: rgba(11, 11, 13, 0.75);
   --overlay-strong: rgba(11, 11, 13, 1);
   --c-pure: #0b0b0d;
   --c-border: rgba(255, 255, 255, 0.1);
