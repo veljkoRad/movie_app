@@ -23,7 +23,7 @@ export default function GenreTabs({ media }: { media: "movies" | "shows" }) {
             <Link
               href={`/${media}/genre/${genre.id}`}
               key={genre.id}
-              className="bg-card flex items-center gap-2 shrink-0 px-3 py-2 border-2 border-bor rounded-full text-sm max-sm:text-xs text-white font-medium"
+              className="bg-card flex items-center gap-2 shrink-0 px-3 py-2 border-2 border-bor rounded-full text-sm max-sm:text-xs text-white font-medium hover:scale-105 transition-all duration-300"
             >
               {genre.icon}
               <h2>{genre.name}</h2>

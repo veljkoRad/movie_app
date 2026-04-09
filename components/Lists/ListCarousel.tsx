@@ -4,15 +4,15 @@ import Image from "next/image";
 import useEmblaCarousel from "embla-carousel-react";
 import Link from "next/link";
 import Container from "../UI/Container";
-import type { MovieListItem, TvListItem } from "@/lib/tmdb/typesList";
+import type { TrendingListItem } from "@/lib/tmdb/typesList";
 import { ChevronRight } from "lucide-react";
 
-type CarouselItem = MovieListItem | TvListItem;
 type ListCarouselProps = {
-  items: CarouselItem[];
+  items: TrendingListItem[];
   type?: "movie" | "show";
   title: string;
   browse?: string;
+  sourceId?: string;
 };
 
 export default function ListCarousel({
@@ -20,6 +20,7 @@ export default function ListCarousel({
   title,
   type,
   browse,
+  sourceId,
 }: ListCarouselProps) {
   const [emblaRef] = useEmblaCarousel({
     loop: false,
@@ -32,29 +33,27 @@ export default function ListCarousel({
     },
   });
 
-  const checkType = (single: CarouselItem) => {
-    if (single.media_type) {
-      if (single.media_type === "movie") {
-        return `/movie/${single.id}`;
-      } else {
-        return `/tv/${single.id}`;
-      }
+  const checkType = (single: TrendingListItem) => {
+    return type === "movie"
+      ? `/movies/single/${single.id}`
+      : `/shows/single/${single.id}`;
+  };
+  const getBrowseHref = (id: string) => {
+    if (browse === "recommended") {
+      return `/${type === "movie" ? "movies" : "shows"}/single/${id}/recommended`;
+    } else if (browse === "similar") {
+      return `/${type === "movie" ? "movies" : "shows"}/single/${id}/similar`;
     } else {
-      if (type === "movie") {
-        return `/movie/${single.id}`;
-      } else {
-        return `/tv/${single.id}`;
-      }
+      return `/${type === "movie" ? "movies" : "shows"}/${browse}`;
     }
   };
-
   return (
     <Container>
       <div className="flex justify-between items-center gap-8">
         <h2 className="text-xl font-bold">{title}</h2>
         {browse && (
           <Link
-            href={`/${type === "movie" ? "movies" : "shows"}/${browse}`}
+            href={getBrowseHref(sourceId ?? items[0]?.id?.toString() ?? "")}
             className="flex gap-1 items-center hover:text-blue transition-all duration-300 cursor-pointer"
           >
             <p className="text-sm font-medium whitespace-nowrap">See All</p>

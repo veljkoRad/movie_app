@@ -18,16 +18,14 @@ type BaseListItem = {
 export type MovieListItem = BaseListItem & {
   title: string;
   release_date?: string;
-  media_type?: "movie";
+  media_type: "movie";
 };
 export type TvListItem = BaseListItem & {
   name: string;
   first_air_date?: string;
-  media_type?: "tv";
+  media_type: "tv";
 };
-export type TrendingListItem =
-  | (MovieListItem & { media_type: "movie" })
-  | (TvListItem & { media_type: "tv" });
+export type TrendingListItem = MovieListItem | TvListItem;
 
 type Genre = {
   id: number;

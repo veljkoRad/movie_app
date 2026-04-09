@@ -46,7 +46,9 @@ function getItemHref(
   item: MovieListItem | TvListItem,
   media: "movies" | "shows",
 ) {
-  return media === "movies" ? `/movie/${item.id}` : `/tv/${item.id}`;
+  return media === "movies"
+    ? `/movies/single/${item.id}`
+    : `/shows/single/${item.id}`;
 }
 
 function getItemTitle(item: MovieListItem | TvListItem) {

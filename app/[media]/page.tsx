@@ -1,5 +1,5 @@
 // Shared
-import Hero from "@/components/Hero/Hero";
+import Hero from "@/components/Hero/page";
 import WrapperBg from "@/components/UI/WrapperBg";
 
 // Shows
@@ -28,12 +28,8 @@ async function MediaPage({ params }: MediaPageProps) {
   const { media } = await params;
   if (media === "shows") {
     const dataTrendingTvDay = await getTrendingTvDay();
-    const trendingTvDay = dataTrendingTvDay.results
-      .slice(0, 4)
-      .map((item) => ({ ...item, media_type: "tv" as const }));
-    const trendingTvDaySide = dataTrendingTvDay.results
-      .slice(4, 7)
-      .map((item) => ({ ...item, media_type: "tv" as const }));
+    const trendingTvDay = dataTrendingTvDay.results.slice(0, 4);
+    const trendingTvDaySide = dataTrendingTvDay.results.slice(4, 7);
     return (
       <WrapperBg>
         <Hero list={trendingTvDay} sideList={trendingTvDaySide} />
@@ -48,13 +44,8 @@ async function MediaPage({ params }: MediaPageProps) {
   }
   if (media === "movies") {
     const dataTrendingMoviesDay = await getTrendingMoviesDay();
-    const trendingMoviesDay = dataTrendingMoviesDay.results
-      .slice(0, 4)
-      .map((item) => ({ ...item, media_type: "movie" as const }));
-    const trendingMoviesDaySide = dataTrendingMoviesDay.results
-      .slice(4, 7)
-      .map((item) => ({ ...item, media_type: "movie" as const }));
-    const dataImage = trendingMoviesDay[0].backdrop_path;
+    const trendingMoviesDay = dataTrendingMoviesDay.results.slice(0, 4);
+    const trendingMoviesDaySide = dataTrendingMoviesDay.results.slice(4, 7);
 
     return (
       <WrapperBg>

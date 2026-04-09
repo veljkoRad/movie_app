@@ -10,6 +10,7 @@ async function RecommendedShows({ id }: { id: string }) {
       type="show"
       title="Recommended"
       browse="recommended"
+      sourceId={id}
     />
   );
 }

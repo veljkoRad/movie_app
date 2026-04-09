@@ -10,6 +10,7 @@ async function SimilarShows({ id }: { id: string }) {
       type="show"
       title="Similar"
       browse="similar"
+      sourceId={id}
     />
   );
 }

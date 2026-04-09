@@ -10,6 +10,7 @@ async function SimilarMovies({ id }: { id: string }) {
       type="movie"
       title="Similar"
       browse="similar"
+      sourceId={id}
     />
   );
 }

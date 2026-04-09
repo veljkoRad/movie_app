@@ -15,7 +15,7 @@ export default function BannerSide({
       {sideList.map((single) => (
         <div key={single.id} className="flex gap-3">
           <Link
-            href={`${single.media_type === "movie" ? "/movie" : "/tv"}/${single.id}`}
+            href={`${single.media_type === "movie" ? "/movies" : "/shows"}/single/${single.id}`}
           >
             <Image
               src={`https://image.tmdb.org/t/p/w342${single.backdrop_path}`}

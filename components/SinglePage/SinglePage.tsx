@@ -56,7 +56,7 @@ export default function SinglePage({
               <div className="flex gap-2">
                 {single.genres.map((genre) => (
                   <Link
-                    href={`/${type === "movie" ? "movie" : "tv"}/genre/${genre.id}`}
+                    href={`/${type === "movie" ? "movies" : "shows"}/genre/${genre.id}`}
                     key={genre.id}
                     className="text-blue "
                   >

@@ -25,7 +25,7 @@ export default async function SearchResults({ searchParams }: SearchProps) {
       <div className="flex flex-wrap gap-4  pt-16 justify-center ">
         {results.map((result) => (
           <Link
-            href={`${result.media_type === "movie" ? "/movie" : "/tv"}/${result.id}`}
+            href={`${result.media_type === "movie" ? "/movies" : "/shows"}/single/${result.id}`}
             key={result.id}
             className="flex flex-col gap-2 w-[228px] max-md:w-[150px] max-sm:w-[90px]  mb-16 max-sm:mb-4 "
           >

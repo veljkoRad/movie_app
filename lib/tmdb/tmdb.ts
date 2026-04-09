@@ -14,6 +14,7 @@ export async function tmdbFetch<T>(
   const url = new URL(`${TMDB_BASE}${path}`);
   url.searchParams.set("api_key", getApiKey());
 
+  // entires create array of arrays for every property in params
   Object.entries(params).forEach(([key, value]) =>
     url.searchParams.set(key, value),
   );

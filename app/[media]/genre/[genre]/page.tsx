@@ -36,7 +36,11 @@ export default async function GenrePage({
           {results.map((item) => (
             <Link
               key={item.id}
-              href={media === "shows" ? `/tv/${item.id}` : `/movie/${item.id}`}
+              href={
+                media === "shows"
+                  ? `/shows/single/${item.id}`
+                  : `/movies/single/${item.id}`
+              }
               className="flex flex-col gap-2 w-[228px] max-md:w-[150px] max-sm:w-[90px] mb-16 max-sm:mb-4"
             >
               <Image

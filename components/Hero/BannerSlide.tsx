@@ -38,7 +38,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
                   ) : null}
                 </article>
                 <h1 className="max-sm:text-2xl text-4xl font-semibold tracking-wide leading-tight">
-                  {"title" in single ? single.title : single.name}
+                  {single.media_type === "movie" ? single.title : single.name}
                 </h1>
                 <p className="text-white/70 text-sm max-sm:hidden font-medium  max-w-[65ch]">
                   {single.overview.length > 200
@@ -46,7 +46,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
                     : single.overview}
                 </p>
                 <Link
-                  href={`${single.media_type === "movie" ? "/movie" : "/tv"}/${single.id}`}
+                  href={`${single.media_type === "movie" ? "/movies" : "/shows"}/single/${single.id}`}
                   className=" flex items-center justify-flex-start gap-0.5 max-sm:px-2 px-4 max-sm:py-2 py-2.5 bg-white text-sm max-sm:text-xs text-card font-bold  rounded-lg   hover:scale-105 transition-all duration-300 "
                 >
                   Explore
