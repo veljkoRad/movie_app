@@ -28,7 +28,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
               }
               priority={single.id === list[0].id}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
+            <div className="absolute inset-0 bg-gradient-to-r from-card/80 to-transparent" />
 
             <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full z-20">
               <div className="text-white flex flex-col gap-3 items-start">
