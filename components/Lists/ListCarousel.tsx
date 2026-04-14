@@ -34,9 +34,15 @@ export default function ListCarousel({
   });
 
   const checkType = (single: TrendingListItem) => {
-    return type === "movie"
-      ? `/movies/single/${single.id}`
-      : `/shows/single/${single.id}`;
+    if (single.media_type) {
+      return single.media_type === "movie"
+        ? `/movies/single/${single.id}`
+        : `/shows/single/${single.id}`;
+    } else {
+      return type === "movie"
+        ? `/movies/single/${single.id}`
+        : `/shows/single/${single.id}`;
+    }
   };
   const getBrowseHref = (id: string) => {
     if (browse === "recommended") {
@@ -74,6 +80,12 @@ export default function ListCarousel({
                 className="shrink-0 max-w-41 max-sm:max-w-25  flex flex-col gap-1  mr-4 aspect-[2/3] "
               >
                 <Image
+                  placeholder={single.poster_path ? "blur" : "empty"}
+                  blurDataURL={
+                    single.poster_path
+                      ? `https://image.tmdb.org/t/p/w92${single.poster_path}`
+                      : undefined
+                  }
                   src={
                     single.poster_path
                       ? `https://image.tmdb.org/t/p/w185${single.poster_path}`

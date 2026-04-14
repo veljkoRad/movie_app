@@ -10,7 +10,6 @@ import WrapperBg from "@/components/UI/WrapperBg";
 // app/page.tsx
 export default async function HomePage() {
   const dataTrendingAllDay = (await getTrendingAllDay()).results;
-  console.log(dataTrendingAllDay);
   const trendingAllDay = dataTrendingAllDay
     // filter it so it skips people and only shows movies and shows
     .filter((item) => item.media_type === "movie" || item.media_type === "tv")

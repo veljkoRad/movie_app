@@ -26,9 +26,16 @@ export default function SinglePage({
       <div className=" absolute top-14 w-full">
         <div className="relative top-0 overflow-hidden  bg-blue">
           <Image
+            placeholder={single.backdrop_path ? "blur" : "empty"}
+            blurDataURL={
+              single.backdrop_path
+                ? `https://image.tmdb.org/t/p/w92${single.backdrop_path}`
+                : undefined
+            }
             src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path}`}
             alt={single.name || single.title || ""}
             loading="eager"
+            priority
             width={1280}
             height={720}
             className="w-full max-h-[462px] max-lg:aspect-[16/9] max-md:aspect-auto max-md:h-[300px] object-cover object-top opacity-40 mix-blend-luminosity"
@@ -39,6 +46,12 @@ export default function SinglePage({
       <Container>
         <div className=" relative mt-70 max-md:mt-4  flex gap-8 max max-md:flex-col ">
           <Image
+            placeholder={single.poster_path ? "blur" : "empty"}
+            blurDataURL={
+              single.poster_path
+                ? `https://image.tmdb.org/t/p/w92${single.poster_path}`
+                : undefined
+            }
             src={`https://image.tmdb.org/t/p/w185${single.poster_path}`}
             alt={single.name || single.title || ""}
             width={185}

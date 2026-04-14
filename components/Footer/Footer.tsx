@@ -15,6 +15,9 @@ export default function Footer() {
           width={150}
           height={165}
           className="h-[40px] max-md:h-[35px] w-auto"
+          placeholder="blur"
+          blurDataURL="/cinepedia_logo.png"
+          loading="eager"
         />
       </button>
       <div>© {new Date().getFullYear()} Cinepedia All rights reserved.</div>

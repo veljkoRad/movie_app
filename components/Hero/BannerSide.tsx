@@ -23,6 +23,12 @@ export default function BannerSide({
               width={256}
               height={144}
               className="object-cover rounded-lg min-w-[199px] w-[199px] h-28 hover:scale-105 transition-all duration-300"
+              placeholder={single.backdrop_path ? "blur" : "empty"}
+              blurDataURL={
+                single.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w92${single.backdrop_path}`
+                  : undefined
+              }
             />
           </Link>
           <div className="flex flex-col gap-0.5 font-medium">

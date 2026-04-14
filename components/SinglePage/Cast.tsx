@@ -75,10 +75,16 @@ export default function Cast({ people }: { people: Person[] }) {
           <div className="flex gap-4">
             {people.map((single) => (
               <div
-                key={single.id}
+                key={single.cast_id}
                 className="w-38 max-md:w-24 shrink-0 rounded-lg"
               >
                 <Image
+                  placeholder={single.profile_path ? "blur" : "empty"}
+                  blurDataURL={
+                    single.profile_path
+                      ? `https://image.tmdb.org/t/p/w92${single.profile_path}`
+                      : undefined
+                  }
                   src={
                     single.profile_path
                       ? `https://image.tmdb.org/t/p/w185${single.profile_path}`

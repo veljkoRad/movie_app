@@ -52,6 +52,8 @@ export default function Header() {
               width={150}
               height={165}
               className="h-[40px] w-auto"
+              placeholder="blur"
+              blurDataURL="/cinepedia_logo.png"
             />
             <div className=" text-md order-1 font-medium ">Cinepedia</div>
           </Link>
@@ -62,6 +64,7 @@ export default function Header() {
                 <Link
                   key={tab.path}
                   href={tab.path}
+                  prefetch
                   ref={(el) => {
                     tabsRef.current[index] = el;
                   }}

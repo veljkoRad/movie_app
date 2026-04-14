@@ -58,6 +58,12 @@ export default async function RecommendedPage({
               width={256}
               height={384}
               className="object-cover rounded-lg h-[342px] max-md:h-[225px] max-sm:h-[135px] hover:scale-105 transition-all duration-300"
+              placeholder={item.poster_path ? "blur" : "empty"}
+              blurDataURL={
+                item.poster_path
+                  ? `https://image.tmdb.org/t/p/w92${item.poster_path}`
+                  : undefined
+              }
             />
             <p className="font-semibold max-sm:hidden">
               {"title" in item ? item.title : item.name}

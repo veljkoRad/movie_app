@@ -11,7 +11,6 @@ export default async function SearchResults({ searchParams }: SearchProps) {
   if (!query) return <p>No search query provided.</p>;
   const currentPage = Math.max(1, Number(page ?? "1") || 1);
   const data = await searchResults(query, currentPage);
-  console.log(data);
   const results = data.results.filter(
     (result) => result.media_type === "movie" || result.media_type === "tv",
   );
@@ -35,6 +34,12 @@ export default async function SearchResults({ searchParams }: SearchProps) {
               width={256}
               height={384}
               className="object-cover object-center rounded-lg h-[342px] max-md:h-[225px] max-sm:h-[135px] hover:scale-105 transition-all duration-300 "
+              placeholder={result.poster_path ? "blur" : "empty"}
+              blurDataURL={
+                result.poster_path
+                  ? `https://image.tmdb.org/t/p/w92${result.poster_path}`
+                  : undefined
+              }
             />
             <p
               className="text-gray-950 font-semibold max-sm:hidden"

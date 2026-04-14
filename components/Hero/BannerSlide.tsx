@@ -3,6 +3,7 @@ import Carousel from "./Carousel";
 import { genres } from "@/lib/genres";
 import type { TrendingListItem } from "@/lib/tmdb/typesList";
 import { ChevronsRight, CornerUpRight } from "lucide-react";
+import Image from "next/image";
 
 export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
   return (
@@ -11,12 +12,25 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
         {list.map((single) => (
           <div
             key={single.id}
-            className="w-full h-[462px] max-lg:h-auto max-lg:aspect-[16/9] max-sm:aspect-[4/3] bg-cover bg-center rounded-[40px] p-6 flex items-end"
-            style={{
-              backgroundImage: `linear-gradient(to right, rgba(0,0,0,0.8), transparent), url(https://image.tmdb.org/t/p/w1280${single.backdrop_path ?? ""})`,
-            }}
+            className="relative w-full h-[462px] max-lg:h-auto max-lg:aspect-[16/9] max-sm:aspect-[4/3] overflow-hidden rounded-[40px] p-6 flex items-end z-10"
           >
-            <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full">
+            <Image
+              src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path ?? ""}`}
+              alt={"name" in single ? single.name : single.title}
+              width={1280}
+              height={462}
+              className="absolute top-0 left-0 w-full h-full object-cover rounded-[40px]"
+              placeholder={single.backdrop_path ? "blur" : "empty"}
+              blurDataURL={
+                single.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w92${single.backdrop_path}`
+                  : undefined
+              }
+              priority={single.id === list[0].id}
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 to-transparent" />
+
+            <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full z-20">
               <div className="text-white flex flex-col gap-3 items-start">
                 <article className="flex gap-5 items-center">
                   {Array.isArray(single.genre_ids) &&
@@ -38,7 +52,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
                   ) : null}
                 </article>
                 <h1 className="max-sm:text-2xl text-4xl font-semibold tracking-wide leading-tight">
-                  {single.media_type === "movie" ? single.title : single.name}
+                  {"name" in single ? single.name : single.title}
                 </h1>
                 <p className="text-white/70 text-sm max-sm:hidden font-medium  max-w-[65ch]">
                   {single.overview.length > 200
