@@ -73,9 +73,9 @@ export default function Cast({ people }: { people: Person[] }) {
         )}
         <div className="overflow-hidden" ref={emblaRef}>
           <div className="flex gap-4">
-            {people.map((single) => (
+            {people.map((single, index) => (
               <div
-                key={single.cast_id}
+                key={`${single.id}-${single.character ?? "unknown"}-${index}`}
                 className="w-38 max-md:w-24 shrink-0 rounded-lg"
               >
                 <Image

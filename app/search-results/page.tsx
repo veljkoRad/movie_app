@@ -29,7 +29,11 @@ export default async function SearchResults({ searchParams }: SearchProps) {
             className="flex flex-col gap-2 w-[228px] max-md:w-[150px] max-sm:w-[90px]  mb-16 max-sm:mb-4 "
           >
             <Image
-              src={`https://image.tmdb.org/t/p/w342${result.poster_path}`}
+              src={
+                result.poster_path
+                  ? `https://image.tmdb.org/t/p/w342${result.poster_path}`
+                  : "/placeholder.jpg"
+              }
               alt={"title" in result ? result.title : result.name}
               width={256}
               height={384}

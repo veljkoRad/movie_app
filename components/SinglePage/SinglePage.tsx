@@ -32,7 +32,11 @@ export default function SinglePage({
                 ? `https://image.tmdb.org/t/p/w92${single.backdrop_path}`
                 : undefined
             }
-            src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path}`}
+            src={
+              single.backdrop_path
+                ? `https://image.tmdb.org/t/p/w1280${single.backdrop_path}`
+                : "/placeholder.jpg"
+            }
             alt={single.name || single.title || ""}
             loading="eager"
             priority
@@ -52,7 +56,11 @@ export default function SinglePage({
                 ? `https://image.tmdb.org/t/p/w92${single.poster_path}`
                 : undefined
             }
-            src={`https://image.tmdb.org/t/p/w185${single.poster_path}`}
+            src={
+              single.poster_path
+                ? `https://image.tmdb.org/t/p/w185${single.poster_path}`
+                : "/placeholder.jpg"
+            }
             alt={single.name || single.title || ""}
             width={185}
             height={278}

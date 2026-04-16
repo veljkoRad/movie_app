@@ -17,7 +17,7 @@ export default function WrapperBg({ children }: { children: React.ReactNode }) {
           className="absolute inset-0"
           style={{
             background:
-              "linear-gradient(to bottom, var(--overlay-soft) 0%, var(--overlay-strong) 40%",
+              "linear-gradient(to bottom, var(--overlay-soft) 0%, var(--overlay-strong) 40%)",
           }}
         />
         <div className="relative">{children}</div>

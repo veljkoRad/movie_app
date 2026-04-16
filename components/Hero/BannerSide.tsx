@@ -8,7 +8,6 @@ export default function BannerSide({
 }: {
   sideList: TrendingListItem[];
 }) {
-  const genresArray = Object.values(genres);
   return (
     <section className=" flex flex-col justify-between relative min-w-89 max-xl:hidden ">
       <h2 className="text-xl font-medium tracking-widest">Trending Now</h2>
@@ -18,7 +17,11 @@ export default function BannerSide({
             href={`${single.media_type === "movie" ? "/movies" : "/shows"}/single/${single.id}`}
           >
             <Image
-              src={`https://image.tmdb.org/t/p/w342${single.backdrop_path}`}
+              src={
+                single.backdrop_path
+                  ? `https://image.tmdb.org/t/p/w342${single.backdrop_path}`
+                  : "/placeholder.jpg"
+              }
               alt={"name" in single ? single.name : single.title}
               width={256}
               height={144}

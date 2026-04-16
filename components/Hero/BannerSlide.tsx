@@ -15,7 +15,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
             className="relative w-full h-[462px] max-lg:h-auto max-lg:aspect-[16/9] max-sm:aspect-[4/3] overflow-hidden rounded-[40px] p-6 flex items-end z-10"
           >
             <Image
-              src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path ?? ""}`}
+              src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path ?? "/placeholder.jpg"}`}
               alt={"name" in single ? single.name : single.title}
               width={1280}
               height={462}
@@ -39,6 +39,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
                       {single.genre_ids
                         .slice(0, 2)
                         .map((id) => genres[id as keyof typeof genres])
+                        // This boolean filters out any undefined values like unkown ID, or invalid genre tags
                         .filter(Boolean)
                         .map((genre) => (
                           <span

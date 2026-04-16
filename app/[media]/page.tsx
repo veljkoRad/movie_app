@@ -19,6 +19,7 @@ import DiscoverMovies from "@/components/Lists/DiscoverMovies";
 import TrendingMoviesWeek from "@/components/Lists/TrendingMoviesWeek";
 import NowPlaying from "@/components/Lists/NowPlaying";
 import GenreTabs from "@/components/Genres/GenreTabs";
+import { notFound } from "next/navigation";
 
 type MediaPageProps = {
   params: Promise<{ media: string }>;
@@ -60,6 +61,7 @@ async function MediaPage({ params }: MediaPageProps) {
       </WrapperBg>
     );
   }
+  notFound();
 }
 
 export default MediaPage;

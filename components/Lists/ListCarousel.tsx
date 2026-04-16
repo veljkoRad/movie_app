@@ -56,9 +56,10 @@ export default function ListCarousel({
   return (
     <Container>
       <div className="flex justify-between items-center gap-8">
-        <h2 className="text-xl font-bold">{title}</h2>
+        <h2 className="text-xl font-bold">{title ?? "Unknown"}</h2>
         {browse && (
           <Link
+            // if sourceId is not provided, use the first item's id , if that also is not provided, use an empty string
             href={getBrowseHref(sourceId ?? items[0]?.id?.toString() ?? "")}
             className="flex gap-1 items-center hover:text-blue transition-all duration-300 cursor-pointer"
           >

@@ -5,10 +5,6 @@
 - embla carousell react- for carousell
 - lucide-react -for icons
 
-1. Fix recomended/simmilar see all => page404
-2. fix- slow load
-3. fix-seo
-
 ## Routes
 
 1. **Home page**
@@ -43,27 +39,7 @@
 
 - url: `/search-results?query={query}` ==> file: `app/search-results/page.tsx`
 
-1. **Home/`[media]`**
-
 ## Data Flow
 
 - Single page
   - `Route -> params ({media, single}) -> validate media  (media=== 'movies' ? const movie = await getMovieDetails(single)) -> fetch getDetails+getPeople -> render SinglePage({single,cast,type}) -> render Cast/Recommended/Similar`
-
-# Typescript
-
-- **Prop Types**
-  - `type HeroProps = {list: TrendingListItem[] };`
-  - always add type for every child that takes that prop
-
-- **Array of types**
-  - `list:TrendingListItem[]`
-  - every element in this array is TrendingListItem
-
-- **Union type**
-  - `type TrendingListItem = MovieListItem | TvListItem;`
-  - if different fields than need narowing
-- **Type narowing**
-  - `single.media_type === "movie" ? single.title : single.name`
-- **Optional Fields**
-  - `release_date?: string`
