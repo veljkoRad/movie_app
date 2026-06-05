@@ -14,7 +14,7 @@ export default function Footer() {
           alt="logo"
           width={150}
           height={165}
-          className="h-[40px] max-md:h-[35px] w-auto"
+          className="h-10 max-md:h-8.75 w-auto"
           placeholder="blur"
           blurDataURL="/cinepedia_logo.png"
           loading="eager"

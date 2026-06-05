@@ -64,7 +64,7 @@ export default function SinglePage({
             alt={single.name || single.title || ""}
             width={185}
             height={278}
-            className="  max-md:w-[100px] max-lg:w-[150px] w-200px rounded-lg border-2 border-primary "
+            className="  max-md:w-25 max-lg:w-37.5 w-200px rounded-lg border-2 border-primary "
           />
           <div className="flex flex-col justify-evenly  ">
             <h1 className="text-4xl max-lg:text-2xl font-bold">

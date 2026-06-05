@@ -15,7 +15,11 @@ export default async function BrowseByList({ params, searchParams }: Props) {
   return (
     <WrapperBg>
       <Suspense fallback={<GenreSkeleton />}>
-        <CategoryResult page={page} media={media} list={list} />
+        <CategoryResult
+          page={Number(page ?? "1") || 1}
+          media={media}
+          list={list}
+        />
       </Suspense>
     </WrapperBg>
   );
