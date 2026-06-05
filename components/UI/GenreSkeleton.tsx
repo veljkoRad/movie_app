@@ -8,7 +8,7 @@ export default function HeroSkeleton() {
         {Array.from({ length: 15 }).map((_, i) => (
           <div
             key={i}
-            className="h-[342px] w-[228px] bg-white/20 rounded mb-6 animate-pulse"
+            className="h-85.5 w-57 bg-white/20 rounded mb-6 animate-pulse"
           />
         ))}
       </div>

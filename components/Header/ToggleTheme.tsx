@@ -18,7 +18,7 @@ export default function ToggleTheme() {
   return (
     <button
       onClick={toggle}
-      className="w-[40px]  bg-pure rounded-full border-secondary border-2 cursor-pointer"
+      className="w-10 bg-pure rounded-full border-secondary border-2 cursor-pointer"
     >
       {theme === "dark" ? (
         <div className="bg-primary p-1 rounded-full w-min translate-x-0 transition-all duration-600 ease-in-out ">

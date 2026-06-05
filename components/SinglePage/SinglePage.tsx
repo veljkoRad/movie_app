@@ -42,9 +42,9 @@ export default function SinglePage({
             priority
             width={1280}
             height={720}
-            className="w-full max-h-[462px] max-lg:aspect-[16/9] max-md:aspect-auto max-md:h-[300px] object-cover object-top opacity-40 mix-blend-luminosity"
+            className="w-full max-h-115.5 max-lg:aspect-video max-md:aspect-auto max-md:h-75 object-cover object-top opacity-40 mix-blend-luminosity"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
+          <div className="absolute inset-0 bg-linear-to-t from-black via-transparent to-transparent" />
         </div>
       </div>
       <Container>

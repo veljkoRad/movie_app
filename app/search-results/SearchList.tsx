@@ -27,7 +27,7 @@ export default async function SearchList({
           <Link
             href={`${result.media_type === "movie" ? "/movies" : "/shows"}/single/${result.id}`}
             key={result.id}
-            className="flex flex-col gap-2 w-[228px] max-md:w-[150px] max-sm:w-[90px]  mb-16 max-sm:mb-4 "
+            className="flex flex-col gap-2 w-57 max-md:w-37.5 max-mmax-sm:w-22.5  mb-16 max-sm:mb-4 "
           >
             <Image
               src={
@@ -38,7 +38,7 @@ export default async function SearchList({
               alt={"title" in result ? result.title : result.name}
               width={256}
               height={384}
-              className="object-cover object-center rounded-lg h-[342px] max-md:h-[225px] max-sm:h-[135px] hover:scale-105 transition-all duration-300 "
+              className="object-cover object-center rounded-lg h-85.5 max-md:h-56.25 max-sm:h-33.75 hover:scale-105 transition-all duration-300 "
               placeholder={result.poster_path ? "blur" : "empty"}
               blurDataURL={
                 result.poster_path

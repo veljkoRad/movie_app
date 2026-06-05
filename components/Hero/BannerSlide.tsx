@@ -12,7 +12,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
         {list.map((single) => (
           <div
             key={single.id}
-            className="relative w-full h-[462px] max-lg:h-auto max-lg:aspect-[16/9] max-sm:aspect-[4/3] overflow-hidden rounded-[40px] p-6 flex items-end z-10"
+            className="relative w-full h-115.5 max-lg:h-auto max-lg:aspect-video max-sm:aspect-4/3 overflow-hidden rounded-[40px] p-6 flex items-end z-10"
           >
             <Image
               src={`https://image.tmdb.org/t/p/w1280${single.backdrop_path ?? "/placeholder.jpg"}`}
@@ -28,7 +28,7 @@ export default function BannerSlide({ list }: { list: TrendingListItem[] }) {
               }
               priority={single.id === list[0].id}
             />
-            <div className="absolute inset-0 bg-gradient-to-r from-card/80 to-transparent" />
+            <div className="absolute inset-0 bg-linear-to-r from-card/80 to-transparent" />
 
             <section className="max-sm:flex-col flex max-sm:gap-2 justify-between max-sm:items-start items-center w-full z-20">
               <div className="text-white flex flex-col gap-3 items-start">

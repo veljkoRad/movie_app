@@ -11,7 +11,9 @@ export default async function GenreResults({
   page,
   genre,
 }: {
-  params: Promise<{ genre: string; media: "movies" | "shows" }>;
+  genre: string;
+  media: "movies" | "shows";
+  page?: string;
 }) {
   const currentPage = Math.max(1, Number(page ?? "1") || 1);
   const data =
@@ -38,7 +40,7 @@ export default async function GenreResults({
                 ? `/shows/single/${item.id}`
                 : `/movies/single/${item.id}`
             }
-            className="flex flex-col gap-2 w-[228px] max-md:w-[150px] max-sm:w-[90px] mb-16 max-sm:mb-4"
+            className="flex flex-col gap-2 w-57 max-md:w-37.5 max-sm:w-22.5 mb-16 max-sm:mb-4"
           >
             <Image
               src={
@@ -49,7 +51,7 @@ export default async function GenreResults({
               alt={"title" in item ? item.title : item.name}
               width={256}
               height={384}
-              className="object-cover rounded-lg h-[342px] max-md:h-[225px] max-sm:h-[135px] hover:scale-105 transition-all duration-300 "
+              className="object-cover rounded-lg h-85.5 max-md:h-56.25 max-sm:h-33.75 hover:scale-105 transition-all duration-300 "
               placeholder={item.poster_path ? "blur" : "empty"}
               blurDataURL={
                 item.poster_path

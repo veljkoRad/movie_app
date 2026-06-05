@@ -51,7 +51,7 @@ export default function Header() {
               alt="logo"
               width={150}
               height={165}
-              className="h-[40px] w-auto"
+              className="h-10 w-auto"
               placeholder="blur"
               blurDataURL="/cinepedia_logo.png"
             />
@@ -74,7 +74,7 @@ export default function Header() {
               ))}
               {isTabRoute && (
                 <span
-                  className="absolute bottom-[-27.2px] max-md:bottom-[-18px] h-[2px] bg-primary transition-all duration-300 ease-in-out"
+                  className="absolute bottom-[-27.2px] max-md:-bottom-4.5 h-0.5 bg-primary transition-all duration-300 ease-in-out"
                   style={{
                     left: indicatorStyle.left,
                     width: indicatorStyle.width,
