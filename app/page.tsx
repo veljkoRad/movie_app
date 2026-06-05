@@ -6,6 +6,9 @@ import UpcomingMovies from "@/components/Lists/UpcomingMovies";
 import OnTheAir from "@/components/Lists/OnTheAir";
 import NowPlaying from "@/components/Lists/NowPlaying";
 import WrapperBg from "@/components/UI/WrapperBg";
+import { Suspense } from "react";
+import HeroSkeleton from "@/components/UI/HeroSkeleton";
+import ListSkeleton from "@/components/UI/ListSkeleton";
 
 // app/page.tsx
 export default async function HomePage() {
@@ -20,12 +23,24 @@ export default async function HomePage() {
 
   return (
     <WrapperBg>
-      <Hero list={trendingAllDay} sideList={trendingAllDaySide} />
-      <TrendingWeek />
-      <UpcomingMovies />
-      <OnTheAir />
-      <NowPlaying />
-      <DiscoverShows />
+      <Suspense fallback={<HeroSkeleton />}>
+        <Hero list={trendingAllDay} sideList={trendingAllDaySide} />
+      </Suspense>
+      <Suspense fallback={<ListSkeleton />}>
+        <TrendingWeek />
+      </Suspense>
+      <Suspense fallback={<ListSkeleton />}>
+        <UpcomingMovies />
+      </Suspense>
+      <Suspense fallback={<ListSkeleton />}>
+        <OnTheAir />
+      </Suspense>
+      <Suspense fallback={<ListSkeleton />}>
+        <NowPlaying />
+      </Suspense>
+      <Suspense fallback={<ListSkeleton />}>
+        <DiscoverShows />
+      </Suspense>
     </WrapperBg>
   );
 }

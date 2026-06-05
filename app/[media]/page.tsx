@@ -20,6 +20,9 @@ import TrendingMoviesWeek from "@/components/Lists/TrendingMoviesWeek";
 import NowPlaying from "@/components/Lists/NowPlaying";
 import GenreTabs from "@/components/Genres/GenreTabs";
 import { notFound } from "next/navigation";
+import { Suspense } from "react";
+import HeroSkeleton from "@/components/UI/HeroSkeleton";
+import ListSkeleton from "@/components/UI/ListSkeleton";
 
 type MediaPageProps = {
   params: Promise<{ media: string }>;
@@ -33,13 +36,25 @@ async function MediaPage({ params }: MediaPageProps) {
     const trendingTvDaySide = dataTrendingTvDay.results.slice(4, 7);
     return (
       <WrapperBg>
-        <Hero list={trendingTvDay} sideList={trendingTvDaySide} />
+        <Suspense fallback={<HeroSkeleton />}>
+          <Hero list={trendingTvDay} sideList={trendingTvDaySide} />
+        </Suspense>
         <GenreTabs media="shows" />
-        <PopularShows />
-        <TopRatedShows />
-        <TrendingShowsWeek />
-        <DiscoverShows />
-        <OnTheAir />
+        <Suspense fallback={<ListSkeleton />}>
+          <PopularShows />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <TopRatedShows />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <TrendingShowsWeek />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <DiscoverShows />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <OnTheAir />
+        </Suspense>
       </WrapperBg>
     );
   }
@@ -50,14 +65,28 @@ async function MediaPage({ params }: MediaPageProps) {
 
     return (
       <WrapperBg>
-        <Hero list={trendingMoviesDay} sideList={trendingMoviesDaySide} />
+        <Suspense fallback={<HeroSkeleton />}>
+          <Hero list={trendingMoviesDay} sideList={trendingMoviesDaySide} />
+        </Suspense>
         <GenreTabs media="movies" />
-        <PopularMovies />
-        <TopRatedMovies />
-        <TrendingMoviesWeek />
-        <UpcomingMovies />
-        <DiscoverMovies />
-        <NowPlaying />
+        <Suspense fallback={<ListSkeleton />}>
+          <PopularMovies />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <TopRatedMovies />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <TrendingMoviesWeek />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <UpcomingMovies />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <DiscoverMovies />
+        </Suspense>
+        <Suspense fallback={<ListSkeleton />}>
+          <NowPlaying />
+        </Suspense>
       </WrapperBg>
     );
   }
